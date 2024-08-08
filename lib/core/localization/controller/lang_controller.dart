@@ -22,7 +22,7 @@ class LcaleController extends GetxController {
   void onInit() {
     String? sharedPrefLang = myServices.sharedPreferences.getString('lang');
     if (sharedPrefLang == null) {
-      language = Get.deviceLocale ?? Locale('en', 'us');
+      language = Get.deviceLocale ?? const Locale('en', 'us');
     } else {
       language =
           Locale(sharedPrefLang.split('_')[0], sharedPrefLang.split('_')[1]);

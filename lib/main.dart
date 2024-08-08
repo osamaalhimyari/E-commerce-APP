@@ -1,7 +1,6 @@
 import 'package:ecommerce1/core/constants/fonts_assets.dart';
 import 'package:ecommerce1/core/localization/translation.dart';
 import 'package:ecommerce1/routes.dart';
-import 'package:ecommerce1/view/screen/auth/login.dart';
 import 'package:ecommerce1/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +8,7 @@ import 'package:get/get.dart';
 import 'core/constants/color_app.dart';
 import 'core/localization/controller/lang_controller.dart';
 import 'core/services/services.dart';
-import 'view/screen/language.dart';
+import 'test/test.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -55,7 +54,7 @@ class MyApp extends StatelessWidget {
       ),
       // initialBinding: ,
       home: const OnBoarding(),
-      // home: const SignIn(),
+      // home: const TestWidget(),
       routes: routes,
     );
   }

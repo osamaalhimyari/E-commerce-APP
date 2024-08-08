@@ -15,7 +15,7 @@ class CustomTextFormAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 20),
       child: TextFormField(
           controller: controller,
           decoration: InputDecoration(

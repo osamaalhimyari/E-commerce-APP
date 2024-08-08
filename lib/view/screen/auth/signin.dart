@@ -19,7 +19,7 @@ class SignIn extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'sign in ',
+          Translate.signIn.tr,
           style: Theme.of(context).textTheme.displayMedium,
         ),
         centerTitle: true,
@@ -28,31 +28,36 @@ class SignIn extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
         alignment: Alignment.center,
         child: ListView(children: [
-          Language(),
+          const Language(),
           const CustomLogoAuth(),
           const SizedBox(height: 20),
           CustomTitleAuth(text: Translate.welcome.tr),
           const SizedBox(height: 20),
-          const CustomBodyAuth(text: 'Sign in with your email and passsword'),
+          CustomBodyAuth(text: Translate.signInMessage.tr),
           const SizedBox(height: 65),
           CustomTextFormAuth(
-              hintText: 'enter your email',
-              lableText: 'email',
+              hintText: Translate.enterEmail.tr,
+              lableText: Translate.email.tr,
               icon: Icons.email_outlined,
               controller: controller.email),
           const SizedBox(height: 25),
           CustomTextFormAuth(
-              hintText: 'enter your password',
-              lableText: 'password',
+              hintText: Translate.enterPassword.tr,
+              lableText: Translate.password.tr,
               icon: Icons.lock_outline,
               controller: controller.password),
-          const Text('forget password?', textAlign: TextAlign.end),
+          InkWell(
+              onTap: () {
+                controller.goToForgetPassword();
+              },
+              child:
+                  Text(Translate.forgetPassword.tr, textAlign: TextAlign.end)),
           const SizedBox(height: 25),
-          CustomButtonAuth(text: 'sign in', onPressed: () {}),
+          CustomButtonAuth(text: Translate.signIn.tr, onPressed: () {}),
           const SizedBox(height: 25),
           CustomTextSignInUp(
-              text1: 'forget password? ',
-              text2: 'Sign Up',
+              text1: Translate.dontHaveAccount.tr,
+              text2: Translate.signUp.tr,
               onTap: () {
                 controller.goToSignUp();
               })

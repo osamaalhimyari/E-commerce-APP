@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import '../../../core/constants/color_app.dart';
 
 class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
-  const CustomButtonOnBoarding({super.key});
+  final String text;
+  const CustomButtonOnBoarding({required this.text, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
             controller.next();
           },
           color: ColorApp.prymarColor,
-          child: const Text('continue'),
+          child: Text(text),
         ),
       ),
     );

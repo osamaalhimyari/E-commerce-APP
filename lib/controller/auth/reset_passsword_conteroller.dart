@@ -2,30 +2,26 @@ import 'package:ecommerce1/core/constants/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class SignUpController extends GetxController {
-  late TextEditingController email;
-  late TextEditingController phone;
+abstract class ResetPasswordController extends GetxController {
   late TextEditingController password;
   late TextEditingController confirmPassword;
-  signUp();
-  goToSignIn();
+  resetPassword();
+  goToSucssesResetCode();
 }
 
-class SignUpControllerImp extends SignUpController {
+class ResetPasswordControllerImp extends ResetPasswordController {
   @override
-  signUp() {
-    Get.offNamed(AppRoute.checkEmail);
+  resetPassword() {
+    //
   }
 
   @override
-  goToSignIn() {
-    Get.back(canPop: true);
+  goToSucssesResetCode() {
+    Get.offNamed(AppRoute.successResetPassword);
   }
 
   @override
   void onInit() {
-    email = TextEditingController();
-    phone = TextEditingController();
     password = TextEditingController();
     confirmPassword = TextEditingController();
     super.onInit();
@@ -33,8 +29,6 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   void dispose() {
-    email.dispose();
-    phone.dispose();
     password.dispose();
     confirmPassword.dispose();
     super.dispose();

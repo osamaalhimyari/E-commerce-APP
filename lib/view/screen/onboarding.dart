@@ -1,4 +1,5 @@
 import 'package:ecommerce1/controller/onboarding_controller.dart';
+import 'package:ecommerce1/core/localization/translation.dart';
 import 'package:ecommerce1/view/widget/onboarding/custom_botton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,18 +13,18 @@ class OnBoarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImp());
-    return const Scaffold(
+    return Scaffold(
         body: SafeArea(
             child: Column(
       children: [
-        Expanded(flex: 3, child: CustomSliderOnBoard()),
+        const Expanded(flex: 3, child: CustomSliderOnBoard()),
         Expanded(
             flex: 1,
             child: Column(
               children: [
-                CustomDotsControllerOnBoarding(),
-                Spacer(flex: 2),
-                CustomButtonOnBoarding()
+                const CustomDotsControllerOnBoarding(),
+                const Spacer(flex: 2),
+                CustomButtonOnBoarding(text: Translate.continue_.tr)
               ],
             ))
       ],
