@@ -13,6 +13,11 @@ class LcaleController extends GetxController {
     Get.updateLocale(locale);
   }
 
+  translate(String text) {
+    return Get
+        .translations[language!.toLanguageTag().replaceAll('-', '_')]![text];
+  }
+
   @override
   void onInit() {
     String? sharedPrefLang = myServices.sharedPreferences.getString('lang');

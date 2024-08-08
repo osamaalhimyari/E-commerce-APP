@@ -18,7 +18,7 @@ class CustomSliderOnBoard extends GetView<OnBoardingControllerImp> {
         children: [
           Text(
             onBoardingList[index].title ?? '',
-            style: Theme.of(context).textTheme.displayLarge,
+            style: Theme.of(context).textTheme.displayMedium,
           ),
           const SizedBox(height: 80),
           Image.asset(
@@ -35,7 +35,7 @@ class CustomSliderOnBoard extends GetView<OnBoardingControllerImp> {
               alignment: Alignment.center,
               child: Text(onBoardingList[index].body ?? '',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyLarge)),
+                  style: Theme.of(context).textTheme.bodyMedium)),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:ecommerce1/core/constants/fonts_assets.dart';
 import 'package:ecommerce1/core/localization/translation.dart';
 import 'package:ecommerce1/routes.dart';
+import 'package:ecommerce1/view/screen/auth/login.dart';
 import 'package:ecommerce1/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,13 +31,22 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         textTheme: const TextTheme(
-          displayLarge: TextStyle(
+          displayMedium: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
               fontFamily: FontAsset.playfairDisplay),
+          displayLarge: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 26,
+              fontFamily: FontAsset.playfairDisplay),
+          bodyMedium: TextStyle(
+            height: 2,
+            fontSize: 17,
+            color: ColorApp.gery,
+          ),
           bodyLarge: TextStyle(
               height: 2,
-              fontSize: 17,
+              fontSize: 20,
               color: ColorApp.gery,
               fontWeight: FontWeight.bold),
         ),
@@ -44,8 +54,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // initialBinding: ,
-      // home: const OnBoarding(),
-      home: const Language(),
+      home: const OnBoarding(),
+      // home: const SignIn(),
       routes: routes,
     );
   }

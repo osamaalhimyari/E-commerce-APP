@@ -12,33 +12,27 @@ class Language extends GetView<LcaleController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('login'),
-        centerTitle: true,
-      ),
-      body: Container(
-        padding: EdgeInsets.all(15),
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('hello'.tr),
-            CustomButtonLanguage(
-                textbutton: 'ar',
-                onPressed: () {
-                  controller.changeLocale(Locale('ar', 'ar'));
-                  Get.toNamed(AppRoute.onBoarding);
-                }),
-            SizedBox(height: 10),
-            CustomButtonLanguage(
-                textbutton: 'en',
-                onPressed: () {
-                  controller.changeLocale(Locale('en', 'us'));
-                  Get.toNamed(AppRoute.onBoarding);
-                }),
-          ],
-        ),
+    return Container(
+      padding: EdgeInsets.all(15),
+      alignment: Alignment.center,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('hello'.tr),
+          CustomButtonLanguage(
+              textbutton: 'ar',
+              onPressed: () {
+                controller.changeLocale(Locale('ar', 'ar'));
+                // Get.toNamed(AppRoute.onBoarding);
+              }),
+          SizedBox(height: 10),
+          CustomButtonLanguage(
+              textbutton: 'en',
+              onPressed: () {
+                controller.changeLocale(Locale('en', 'us'));
+                // Get.toNamed(AppRoute.onBoarding);
+              }),
+        ],
       ),
     );
   }
