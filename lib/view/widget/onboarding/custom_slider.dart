@@ -13,12 +13,13 @@ class CustomSliderOnBoard extends GetView<OnBoardingControllerImp> {
       onPageChanged: (value) => controller.onPageChanged(value),
       itemCount: onBoardingList.length,
       itemBuilder: (context, index) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             onBoardingList[index].title ?? '',
             style: Theme.of(context).textTheme.displayMedium,
           ),
-          const SizedBox(height: 80),
+          const SizedBox(height: 30),
           Image.asset(
             onBoardingList[index].image ?? '',
             width: 200,

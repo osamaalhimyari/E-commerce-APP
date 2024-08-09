@@ -1,17 +1,19 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
-import '../../../../controller/auth/verfy_code_controller.dart';
 import '../../../../core/localization/langs/translation.dart';
-import '../../../widget/auth/custom_text_body.dart';
-// import '../../widget/auth/custom_text_form.dart';
+import '../../../controller/auth/verfy_code_signup_controller.dart';
+import '../../widget/auth/custom_text_body.dart';
 
-class VerfyCode extends StatelessWidget {
-  const VerfyCode({super.key});
+class VerfyCodeSignUp extends StatelessWidget {
+  const VerfyCodeSignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    VerfyCodeControllerImp controller = Get.put(VerfyCodeControllerImp());
+    VerfyCodeSignUpControllerImp controller =
+        Get.put(VerfyCodeSignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -49,7 +51,7 @@ class VerfyCode extends StatelessWidget {
               //         content: Text('Code entered is $verificationCode'),
               //       );
               //     });
-              controller.goToResetPassword();
+              controller.goToSuccessSignUp();
             }, // end onSubmit
           ),
           const SizedBox(height: 25),

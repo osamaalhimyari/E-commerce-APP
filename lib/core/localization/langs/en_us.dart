@@ -24,5 +24,9 @@ class EnUs {
     'verfyCodeMessage': 'Check your email for verification code',
     'successSignUp': 'Success Sign Up',
     'successResetPassword': 'Success Reset Password',
+    'warning': 'warning',
+    'yes': 'yes',
+    'cancel': 'cancel',
+    'alertexitingApp': 'are you sure of exiting app?',
   };
 }

@@ -1,7 +1,7 @@
-import 'package:ecommerce1/core/localization/translation.dart';
+import 'package:ecommerce1/core/localization/langs/translation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../core/localization/controller/lang_controller.dart';
+import '../../core/localization/controller/locale_controller.dart';
 import '../widget/language/custom_button.dart';
 
 class Language extends GetView<LcaleController> {

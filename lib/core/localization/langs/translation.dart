@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'langs/ar_ar.dart';
-import 'langs/en_us.dart';
+import 'ar_ar.dart';
+import 'en_us.dart';
 
 class MyTranslation extends Translations {
   @override
@@ -11,6 +11,10 @@ class MyTranslation extends Translations {
 }
 
 class Translate {
+  static String warning = 'warning';
+  static String alertexitingApp = 'alertexitingApp';
+  static String yes = 'yes';
+  static String cancel = 'cancel';
   static String welcome = 'welcome';
   static String welcomeBack = 'welcomeBack';
   static String hello = 'hello';

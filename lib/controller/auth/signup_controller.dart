@@ -14,7 +14,8 @@ abstract class SignUpController extends GetxController {
 class SignUpControllerImp extends SignUpController {
   @override
   signUp() {
-    Get.offNamed(AppRoute.checkEmail);
+    Get.offNamed(AppRoute.verfyCodeSignUp);
+    // Get.delete<SignUpControllerImp>();
   }
 
   @override

@@ -2,8 +2,7 @@ import 'package:ecommerce1/view/widget/auth/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../controller/auth/reset_passsword_conteroller.dart';
-import '../../../../core/localization/translation.dart';
-import '../../../widget/auth/custom_text_body.dart';
+import '../../../../core/localization/langs/translation.dart';
 import '../../../widget/auth/custom_text_form.dart';
 
 class ResetPassword extends StatelessWidget {
@@ -27,14 +26,20 @@ class ResetPassword extends StatelessWidget {
         child: ListView(children: [
           const SizedBox(height: 65),
           CustomTextFormAuth(
+              validator: (val) {
+                return null;
+              },
               hintText: Translate.enterPassword.tr,
               lableText: Translate.password.tr,
-              icon: Icons.lock_outline,
+              icon: const Icon(Icons.lock_outline),
               controller: controller.password),
           CustomTextFormAuth(
+              validator: (val) {
+                return null;
+              },
               hintText: Translate.confirmPassword.tr,
               lableText: Translate.password.tr,
-              icon: Icons.lock_outline,
+              icon: const Icon(Icons.lock_outline),
               controller: controller.confirmPassword),
           const SizedBox(height: 25),
           CustomButtonAuth(

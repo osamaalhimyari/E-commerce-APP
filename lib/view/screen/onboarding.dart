@@ -1,5 +1,5 @@
 import 'package:ecommerce1/controller/onboarding_controller.dart';
-import 'package:ecommerce1/core/localization/translation.dart';
+import 'package:ecommerce1/core/localization/langs/translation.dart';
 import 'package:ecommerce1/view/widget/onboarding/custom_botton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +17,7 @@ class OnBoarding extends StatelessWidget {
         body: SafeArea(
             child: Column(
       children: [
-        const Expanded(flex: 3, child: CustomSliderOnBoard()),
+        const Expanded(flex: 2, child: CustomSliderOnBoard()),
         Expanded(
             flex: 1,
             child: Column(

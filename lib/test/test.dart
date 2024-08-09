@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class TestWidget extends StatefulWidget {
   const TestWidget({super.key});
@@ -18,7 +17,7 @@ class _TestWidgetState extends State<TestWidget> {
       body: Container(
           padding: const EdgeInsets.only(top: 20),
           child: ListView(
-            children: [],
+            children: const [],
           )),
     );
   }

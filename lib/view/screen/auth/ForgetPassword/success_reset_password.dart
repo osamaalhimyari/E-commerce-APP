@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../controller/auth/success_reset_password_controller.dart';
 import '../../../../core/constants/color_app.dart';
-import '../../../../core/localization/translation.dart';
+import '../../../../core/localization/langs/translation.dart';
 import '../../../widget/auth/custom_button.dart';
 
 class SuccessResetPassword extends StatelessWidget {
@@ -10,6 +11,8 @@ class SuccessResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SuccenssResetPassWordControllerImp controller =
+        Get.put(SuccenssResetPassWordControllerImp());
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -19,15 +22,19 @@ class SuccessResetPassword extends StatelessWidget {
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            Icon(
+            const Icon(
               Icons.check_circle_outline,
               size: 200,
               color: ColorApp.prymarColor,
             ),
-            CustomButtonAuth(text: Translate.signIn.tr, onPressed: () {}),
+            CustomButtonAuth(
+                text: Translate.signIn.tr,
+                onPressed: () {
+                  controller.goToSignIn();
+                }),
           ],
         ),
       ),
