@@ -5,10 +5,14 @@ class AppLinks {
 
   //======================== Auth ======================= //
 
-  static const String signUp = "$server/auth/signUp.php";
-  static const String verfySignUp = "$server/auth/verfycode.php";
-  static const String signIn = "$server/auth/signin.php";
+  static const String _authRoot = "$server/auth";
+  static const String signUp = "$_authRoot/signUp.php";
+  static const String verfySignUp = "$_authRoot/verfycode.php";
+  static const String signIn = "$_authRoot/signin.php";
   //======================== porgetpassword ======================= //
-  static const String forgetPassword =
-      "$server/forget_password/forgetPassword.php";
+
+  static const String _forgetPassRoot = "$server/forget_password";
+  static const String forgetPassword = "$_forgetPassRoot/forget_password.php";
+  static const String resetPassword = "$_forgetPassRoot/reset_password.php";
+  static const String verfyCode = "$_forgetPassRoot/verfycode.php";
 }

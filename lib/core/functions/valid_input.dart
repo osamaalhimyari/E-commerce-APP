@@ -29,3 +29,10 @@ validInput(String val, int min, int max, String type) {
   }
   // return null;
 }
+
+validConfirmPassword(
+  String password,
+  String confirmPassword,
+) {
+  return password != confirmPassword ? 'password not match' : null;
+}

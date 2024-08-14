@@ -14,6 +14,7 @@ abstract class SignInController extends GetxController {
   goToSignUp();
   goToForgetPassword();
   showPasswordText();
+  loading();
 }
 
 class SignInControllerImp extends SignInController {
@@ -70,5 +71,10 @@ class SignInControllerImp extends SignInController {
   showPasswordText() {
     hidePassword = !hidePassword;
     update();
+  }
+
+  @override
+  loading() {
+    return statusRequest == StatusRequest.loading;
   }
 }

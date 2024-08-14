@@ -14,6 +14,7 @@ abstract class SignUpController extends GetxController {
   late TextEditingController confirmPassword;
   signUp();
   goToSignIn();
+  loading();
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -69,5 +70,10 @@ class SignUpControllerImp extends SignUpController {
     password.dispose();
     confirmPassword.dispose();
     super.dispose();
+  }
+
+  @override
+  loading() {
+    return statusRequest == StatusRequest.loading;
   }
 }

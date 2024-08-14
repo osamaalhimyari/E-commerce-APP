@@ -1,14 +1,14 @@
-import 'package:ecommerce1/view/screen/auth/verfy_code_signUp.dart';
 import 'package:get/get.dart';
 import 'core/constants/routes.dart';
 import 'core/middleware/my_middleware.dart';
 import 'view/screen/auth/ForgetPassword/forget_password.dart';
 import 'view/screen/auth/ForgetPassword/reset_password.dart';
-import 'view/screen/auth/ForgetPassword/verfy_code.dart';
+import 'view/screen/auth/ForgetPassword/verfy_code_forgetpassword.dart';
 import 'view/screen/auth/signup/signup.dart';
 import 'view/screen/auth/signup/success_signup.dart';
 import 'view/screen/auth/signin.dart';
 import 'view/screen/auth/ForgetPassword/success_reset_password.dart';
+import 'view/screen/auth/signup/verfy_code_signup.dart';
 import 'view/screen/home.dart';
 import 'view/screen/onboarding.dart';
 

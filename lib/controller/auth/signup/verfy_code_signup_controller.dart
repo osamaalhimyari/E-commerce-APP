@@ -6,13 +6,12 @@ import '../../../core/functions/handling_transaction.dart';
 import '../../../data/datasource/remote/auth/verfycode_signup_data.dart';
 
 abstract class VerfyCodeSignUpController extends GetxController {
-  checkCode();
-  goToSuccessSignUp(String verfyCode);
+  checkCode(String verfyCode);
   changeApproved(bool state);
+  loading();
 }
 
 class VerfyCodeSignUpControllerImp extends VerfyCodeSignUpController {
-  // late String verfyCode;
   late String? email;
   late bool approved = true;
   VerfyCodeSignUpData verfyCodeSignUpData = VerfyCodeSignUpData(Get.find());
@@ -24,19 +23,12 @@ class VerfyCodeSignUpControllerImp extends VerfyCodeSignUpController {
   }
 
   @override
-  checkCode() async {
-    // verfyCode = code;
-  }
-
-  @override
-  goToSuccessSignUp(String verfyCode) async {
+  checkCode(String verfyCode) async {
     statusRequest = StatusRequest.loading;
     update();
     var response = await verfyCodeSignUpData.postData(email!, verfyCode);
 
     statusRequest = handlingTransaction(response);
-    // print('===========email===${response}==============${statusRequest}');
-    // print('============================${statusRequest}');
     if (statusRequest == StatusRequest.success) {
       Get.offNamed(AppRoute.successSignUp);
     } else {
@@ -52,5 +44,10 @@ class VerfyCodeSignUpControllerImp extends VerfyCodeSignUpController {
   void onInit() {
     email = Get.arguments['email'];
     super.onInit();
+  }
+
+  @override
+  loading() {
+    return statusRequest == StatusRequest.loading;
   }
 }

@@ -1,9 +1,9 @@
 import 'package:ecommerce1/app_links.dart';
 import 'package:ecommerce1/core/class/crud_transactions.dart';
 
-class ForgetPassword {
+class ForgetPasswordData {
   CrudTrans crud;
-  ForgetPassword(this.crud);
+  ForgetPasswordData(this.crud);
   postData(String email) async {
     var response = await crud.postData(AppLinks.forgetPassword, {
       "email": email,

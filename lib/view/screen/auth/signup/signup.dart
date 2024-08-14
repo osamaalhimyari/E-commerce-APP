@@ -1,5 +1,4 @@
 // import 'package:ecommerce1/controller/auth/signup_controller.dart';
-import 'package:ecommerce1/core/class/status_request.dart';
 import 'package:ecommerce1/view/widget/auth/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,7 +25,7 @@ class SignUp extends StatelessWidget {
         centerTitle: true,
       ),
       body: GetBuilder<SignUpControllerImp>(builder: (controller) {
-        return controller.statusRequest == StatusRequest.loading
+        return controller.loading()
             ? const SharedLoading()
             : Container(
                 padding:
@@ -73,8 +72,8 @@ class SignUp extends StatelessWidget {
                         controller: controller.password),
                     CustomTextFormAuth(
                         validator: (val) {
-                          return null;
-                          //  validInput(val!, 8, 20, 'password');
+                          return validConfirmPassword(controller.password.text,
+                              controller.confirmPassword.text);
                         },
                         hintText: Translate.confirmPassword.tr,
                         lableText: Translate.password.tr,

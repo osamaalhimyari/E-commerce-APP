@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import '../../../../core/localization/langs/translation.dart';
-// import '../../../controller/auth/verfy_code_signup_controller.dart';
 import '../../../../controller/auth/signup/verfy_code_signup_controller.dart';
-import '../../../../core/class/status_request.dart';
 import '../../../../core/shared/loading.dart';
 import '../../../widget/auth/custom_text_body.dart';
 
@@ -26,7 +24,7 @@ class VerfyCodeSignUp extends StatelessWidget {
         ),
         body: GetBuilder<VerfyCodeSignUpControllerImp>(
           builder: (controller) {
-            return controller.statusRequest == StatusRequest.loading
+            return controller.loading()
                 ? const SharedLoading()
                 : Container(
                     padding: const EdgeInsets.symmetric(
@@ -59,7 +57,7 @@ class VerfyCodeSignUp extends StatelessWidget {
                         onSubmit:
                             // controller.checkCode,
                             (String verificationCode) {
-                          controller.goToSuccessSignUp(verificationCode);
+                          controller.checkCode(verificationCode);
                         }, // end onSubmit
                       ),
                       const SizedBox(height: 25),

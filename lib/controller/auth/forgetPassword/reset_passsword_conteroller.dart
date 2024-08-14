@@ -1,27 +1,46 @@
+import 'package:ecommerce1/core/class/status_request.dart';
 import 'package:ecommerce1/core/constants/routes.dart';
+import 'package:ecommerce1/data/datasource/remote/forget_password/reset_password_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../core/functions/handling_transaction.dart';
 
 abstract class ResetPasswordController extends GetxController {
   late TextEditingController password;
   late TextEditingController confirmPassword;
   resetPassword();
-  goToSucssesResetCode();
+  loading();
 }
 
 class ResetPasswordControllerImp extends ResetPasswordController {
-  @override
-  resetPassword() {
-    //
-  }
+  late String email;
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
 
+  ResetPasswordData resetPasswordData = ResetPasswordData(Get.find());
+  StatusRequest? statusRequest;
   @override
-  goToSucssesResetCode() {
-    Get.offNamed(AppRoute.successResetPassword);
+  resetPassword() async {
+    if (formState.currentState!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await resetPasswordData.postData(email, password.text);
+
+      statusRequest = handlingTransaction(response);
+      if (statusRequest == StatusRequest.success) {
+        Get.offNamed(AppRoute.successResetPassword);
+      } else {
+        // approved = false;
+        Get.defaultDialog(title: 'Error', middleText: "unKonkwn Error");
+        statusRequest = StatusRequest.failur;
+      }
+      update();
+    }
   }
 
   @override
   void onInit() {
+    email = Get.arguments['email'];
     password = TextEditingController();
     confirmPassword = TextEditingController();
     super.onInit();
@@ -32,5 +51,10 @@ class ResetPasswordControllerImp extends ResetPasswordController {
     password.dispose();
     confirmPassword.dispose();
     super.dispose();
+  }
+
+  @override
+  loading() {
+    return statusRequest == StatusRequest.loading;
   }
 }
