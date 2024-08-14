@@ -3,8 +3,9 @@ import 'package:ecommerce1/core/localization/langs/translation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/success_signup_controller.dart';
-import '../../widget/auth/custom_button.dart';
+// import '../../../controller/auth/success_signup_controller.dart';
+import '../../../../controller/auth/signup/success_signup_controller.dart';
+import '../../../widget/auth/custom_button.dart';
 
 class SuccessSignUp extends StatelessWidget {
   const SuccessSignUp({super.key});
@@ -28,7 +29,7 @@ class SuccessSignUp extends StatelessWidget {
             const Icon(
               Icons.check_circle_outline,
               size: 200,
-              color: ColorApp.prymarColor,
+              color: AppColors.prymarColor,
             ),
             CustomButtonAuth(
                 text: Translate.signIn.tr,

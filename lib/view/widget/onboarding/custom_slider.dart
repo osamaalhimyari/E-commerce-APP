@@ -1,7 +1,7 @@
 import 'package:ecommerce1/controller/onboarding_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../data/datasoure/static/static.dart';
+import '../../../data/datasource/static/static.dart';
 
 class CustomSliderOnBoard extends GetView<OnBoardingControllerImp> {
   const CustomSliderOnBoard({super.key});

@@ -25,7 +25,7 @@ class CustomTextSignInUp extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium!
-                  .copyWith(color: ColorApp.prymarColor),
+                  .copyWith(color: AppColors.prymarColor),
             )),
       ],
     );

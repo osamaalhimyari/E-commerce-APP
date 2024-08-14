@@ -14,7 +14,7 @@ class MyMiddleware extends GetMiddleware {
         myServices.sharedPreferences.getBool('passOnBoarding') ?? false;
 
     if (passOnBoarding) {
-      return RouteSettings(name: AppRoute.signIn);
+      return const RouteSettings(name: AppRoute.signIn);
     }
     return null;
   }

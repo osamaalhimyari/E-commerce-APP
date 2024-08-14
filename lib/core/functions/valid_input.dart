@@ -21,7 +21,7 @@ validInput(String val, int min, int max, String type) {
     return ' value is biger than max length';
   }
 
-  if (type.length < min) {
+  if (type.length <= min) {
     return ' value is smaller than min length';
   }
   if (val.isEmpty) {

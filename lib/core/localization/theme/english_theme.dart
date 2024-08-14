@@ -19,12 +19,12 @@ class EnglishTheme {
         bodyMedium: TextStyle(
           height: 2,
           fontSize: 17,
-          color: ColorApp.gery,
+          color: AppColors.gery,
         ),
         bodyLarge: TextStyle(
             height: 2,
             fontSize: 20,
-            color: ColorApp.gery,
+            color: AppColors.gery,
             fontWeight: FontWeight.bold),
       ),
       colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

@@ -15,6 +15,8 @@ class EnUs {
     'dontHaveAccount': "Don't have an account?",
     'enterPhon': 'Enter Phon',
     'phon': 'Phon',
+    'enterName': 'Enter user name',
+    'name': 'User name',
     'enterEmail': 'Enter Email',
     'email': 'Email',
     'checkEmail': 'Check Email',

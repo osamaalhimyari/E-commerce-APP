@@ -15,7 +15,7 @@ class CustomButtonLanguage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 2),
         textColor: Colors.white,
         onPressed: onPressed,
-        color: ColorApp.prymarColor,
+        color: AppColors.prymarColor,
         child: Text(textbutton),
       ),
     );

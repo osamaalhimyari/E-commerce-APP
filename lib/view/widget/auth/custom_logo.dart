@@ -7,7 +7,7 @@ class CustomLogoAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      ImageAsset.logo,
+      AppImageAsset.logo,
       height: 200,
       width: 200,
     );

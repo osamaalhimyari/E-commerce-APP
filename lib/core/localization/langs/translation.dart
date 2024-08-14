@@ -30,8 +30,12 @@ class Translate {
   static String dontHaveAccount = 'dontHaveAccount'; //'dont have account ? '
   static String enterPhon = 'enterPhon'; //'enter your phon'
   static String phon = 'phon'; //'phon'
+  static String enterName = 'enterName'; //'enter your email'
+  static String name = 'name'; //'email'
   static String enterEmail = 'enterEmail'; //'enter your email'
   static String email = 'email'; //'email'
+  static String enterEmailOrPhone = 'enterEmailOrPhone'; //'enter your email'
+  static String emailOrPhone = 'emailOrPhone'; //'email'
   static String checkEmail = 'checkEmail'; //'Check Email'
   static String signUpMessage = 'signUpMessage';
   static String signInMessage = 'signInMessage';

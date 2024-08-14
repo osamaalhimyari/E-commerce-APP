@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constants/color_app.dart';
-import '../../../data/datasoure/static/static.dart';
+import '../../../data/datasource/static/static.dart';
 
 class CustomDotsControllerOnBoarding extends StatelessWidget {
   const CustomDotsControllerOnBoarding({super.key});
@@ -22,7 +22,7 @@ class CustomDotsControllerOnBoarding extends StatelessWidget {
                     width: controller.currentPage == index ? 20 : 6,
                     height: 6,
                     decoration: BoxDecoration(
-                        color: ColorApp.prymarColor,
+                        color: AppColors.prymarColor,
                         borderRadius: BorderRadius.circular(10)),
                   ))
         ],

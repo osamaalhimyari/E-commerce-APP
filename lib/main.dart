@@ -1,10 +1,8 @@
 import 'package:ecommerce1/core/localization/langs/translation.dart';
 import 'package:ecommerce1/routes.dart';
-import 'package:ecommerce1/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'core/binding/binding.dart';
+import 'binding/binding.dart';
 import 'core/localization/controller/locale_controller.dart';
 import 'core/services/services.dart';
 

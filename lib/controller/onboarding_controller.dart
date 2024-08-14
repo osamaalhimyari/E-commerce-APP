@@ -1,6 +1,6 @@
 import 'package:ecommerce1/core/constants/routes.dart';
 import 'package:ecommerce1/core/services/services.dart';
-import 'package:ecommerce1/data/datasoure/static/static.dart';
+import 'package:ecommerce1/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

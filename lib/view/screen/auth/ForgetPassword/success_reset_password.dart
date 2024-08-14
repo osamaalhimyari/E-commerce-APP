@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controller/auth/success_reset_password_controller.dart';
+import '../../../../controller/auth/forgetPassword/success_reset_password_controller.dart';
 import '../../../../core/constants/color_app.dart';
 import '../../../../core/localization/langs/translation.dart';
 import '../../../widget/auth/custom_button.dart';
@@ -28,7 +28,7 @@ class SuccessResetPassword extends StatelessWidget {
             const Icon(
               Icons.check_circle_outline,
               size: 200,
-              color: ColorApp.prymarColor,
+              color: AppColors.prymarColor,
             ),
             CustomButtonAuth(
                 text: Translate.signIn.tr,

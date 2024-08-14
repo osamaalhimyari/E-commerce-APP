@@ -1,7 +1,7 @@
 import 'package:ecommerce1/view/widget/auth/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../controller/auth/forget_password_controller.dart';
+import '../../../../controller/auth/forgetPassword/forget_password_controller.dart';
 import '../../../../core/localization/langs/translation.dart';
 import '../../../widget/auth/custom_text_body.dart';
 import '../../../widget/auth/custom_text_form.dart';

@@ -1,22 +1,21 @@
-import 'package:ecommerce1/core/middleware/my_middleware.dart';
 import 'package:ecommerce1/view/screen/auth/verfy_code_signUp.dart';
-import 'package:ecommerce1/view/screen/onboarding.dart';
 import 'package:get/get.dart';
-
 import 'core/constants/routes.dart';
+import 'core/middleware/my_middleware.dart';
 import 'view/screen/auth/ForgetPassword/forget_password.dart';
 import 'view/screen/auth/ForgetPassword/reset_password.dart';
 import 'view/screen/auth/ForgetPassword/verfy_code.dart';
-import 'view/screen/auth/signup.dart';
-import 'view/screen/auth/success_signup.dart';
+import 'view/screen/auth/signup/signup.dart';
+import 'view/screen/auth/signup/success_signup.dart';
 import 'view/screen/auth/signin.dart';
 import 'view/screen/auth/ForgetPassword/success_reset_password.dart';
+import 'view/screen/home.dart';
+import 'view/screen/onboarding.dart';
 
 List<GetPage<dynamic>>? routesPages = [
+  // GetPage(name: '/', page: () => const TestView()),
   GetPage(
-      name: AppRoute.onBoarding,
-      page: () => const OnBoarding(),
-      middlewares: [MyMiddleware()]),
+      name: '/', page: () => const OnBoarding(), middlewares: [MyMiddleware()]),
   GetPage(name: AppRoute.signIn, page: () => const SignIn()),
   GetPage(name: AppRoute.signUp, page: () => const SignUp()),
   GetPage(name: AppRoute.forgetPassword, page: () => const ForgetPassword()),
@@ -27,4 +26,5 @@ List<GetPage<dynamic>>? routesPages = [
       page: () => const SuccessResetPassword()),
   GetPage(name: AppRoute.successSignUp, page: () => const SuccessSignUp()),
   GetPage(name: AppRoute.verfyCodeSignUp, page: () => const VerfyCodeSignUp()),
+  GetPage(name: AppRoute.home, page: () => const Home()),
 ];

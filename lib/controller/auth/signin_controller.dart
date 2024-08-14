@@ -1,6 +1,10 @@
 import 'package:ecommerce1/core/constants/routes.dart';
+import 'package:ecommerce1/data/datasource/remote/auth/signin_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../core/class/status_request.dart';
+import '../../core/functions/handling_transaction.dart';
 
 abstract class SignInController extends GetxController {
   late TextEditingController email;
@@ -14,14 +18,27 @@ abstract class SignInController extends GetxController {
 
 class SignInControllerImp extends SignInController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
+  SignInData signInData = SignInData(Get.find());
+  // List data = [];
+  StatusRequest? statusRequest;
   @override
-  signIn() {
-    var formdata = formState.currentState;
-    if (!formdata!.validate()) {
-      //
-    } else {
-      // return
-    }
+  signIn() async {
+    if (formState.currentState!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await signInData.postData(email.text, password.text);
+
+      statusRequest = handlingTransaction(response);
+
+      if (statusRequest == StatusRequest.success) {
+        Get.offNamed(AppRoute.home);
+      } else {
+        Get.defaultDialog(
+            title: 'Error', middleText: "wrong email or password ");
+        statusRequest = StatusRequest.failur;
+      }
+      update();
+    } else {}
   }
 
   @override

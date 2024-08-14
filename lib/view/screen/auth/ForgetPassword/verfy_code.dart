@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
-import '../../../../controller/auth/verfy_code_controller.dart';
+import '../../../../controller/auth/forgetPassword/verfy_code_controller.dart';
 import '../../../../core/localization/langs/translation.dart';
 import '../../../widget/auth/custom_text_body.dart';
-// import '../../widget/auth/custom_text_form.dart';
 
 class VerfyCode extends StatelessWidget {
   const VerfyCode({super.key});

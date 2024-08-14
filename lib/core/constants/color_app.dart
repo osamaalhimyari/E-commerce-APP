@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ColorApp {
-  static const Color gery = Colors.grey;
+class AppColors {
+  static const Color gery = Colors.blueGrey;
   static const Color prymarColor = Colors.blueAccent;
 }

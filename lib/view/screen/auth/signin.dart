@@ -47,7 +47,7 @@ class SignIn extends StatelessWidget {
                   const SizedBox(height: 65),
                   CustomTextFormAuth(
                       validator: (val) {
-                        return validInput(val!, 5, 100, 'email');
+                        return validInput(val!, 2, 100, 'email');
                       },
                       keyboardType: TextInputType.emailAddress,
                       hintText: Translate.enterEmail.tr,
@@ -57,7 +57,7 @@ class SignIn extends StatelessWidget {
                   const SizedBox(height: 25),
                   CustomTextFormAuth(
                       validator: (val) {
-                        return validInput(val!, 5, 100, 'password');
+                        return validInput(val!, 2, 100, 'password');
                       },
                       obscureText: controller.hidePassword,
                       keyboardType: TextInputType.visiblePassword,
