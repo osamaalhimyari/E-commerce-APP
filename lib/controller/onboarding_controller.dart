@@ -17,7 +17,7 @@ class OnBoardingControllerImp extends OnBoardingController {
   next() {
     currentPage++;
     if (currentPage > onBoardingList.length - 1) {
-      myServices.sharedPreferences.setBool('passOnBoarding', true);
+      myServices.sharedPreferences.setInt('step', 1);
       Get.offAllNamed(AppRoute.signIn);
     } else {
       pagecontroller.animateToPage(currentPage,

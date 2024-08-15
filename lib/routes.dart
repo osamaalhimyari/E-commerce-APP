@@ -9,7 +9,7 @@ import 'view/screen/auth/signup/success_signup.dart';
 import 'view/screen/auth/signin.dart';
 import 'view/screen/auth/ForgetPassword/success_reset_password.dart';
 import 'view/screen/auth/signup/verfy_code_signup.dart';
-import 'view/screen/home.dart';
+import 'view/screen/pages/home.dart';
 import 'view/screen/onboarding.dart';
 
 List<GetPage<dynamic>>? routesPages = [
@@ -26,5 +26,5 @@ List<GetPage<dynamic>>? routesPages = [
       page: () => const SuccessResetPassword()),
   GetPage(name: AppRoute.successSignUp, page: () => const SuccessSignUp()),
   GetPage(name: AppRoute.verfyCodeSignUp, page: () => const VerfyCodeSignUp()),
-  GetPage(name: AppRoute.home, page: () => const Home()),
+  GetPage(name: AppRoute.home, page: () => const HomePage()),
 ];

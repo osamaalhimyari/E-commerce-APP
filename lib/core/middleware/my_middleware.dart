@@ -10,12 +10,16 @@ class MyMiddleware extends GetMiddleware {
   MyServices myServices = Get.find();
   @override
   RouteSettings? redirect(String? route) {
-    bool passOnBoarding =
-        myServices.sharedPreferences.getBool('passOnBoarding') ?? false;
+    int passOnBoarding = myServices.sharedPreferences.getInt('step') ?? 0;
+    switch (passOnBoarding) {
+      case 1:
+        return const RouteSettings(name: AppRoute.signIn);
+      case 2:
+        return const RouteSettings(name: AppRoute.home);
 
-    if (passOnBoarding) {
-      return const RouteSettings(name: AppRoute.signIn);
+      default:
     }
+
     return null;
   }
 }

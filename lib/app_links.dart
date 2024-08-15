@@ -15,4 +15,9 @@ class AppLinks {
   static const String forgetPassword = "$_forgetPassRoot/forget_password.php";
   static const String resetPassword = "$_forgetPassRoot/reset_password.php";
   static const String verfyCode = "$_forgetPassRoot/verfycode.php";
+
+  //======================== pages          ======================= //
+  static const String _pagesRoot = "$server";
+  // home
+  static const String home = "$_pagesRoot/home.php";
 }

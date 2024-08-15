@@ -1,8 +1,9 @@
+import 'package:ecommerce2/core/services/services.dart';
+
 import '/core/constants/routes.dart';
 import '/data/datasource/remote/auth/signin_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import '../../core/class/status_request.dart';
 import '../../core/functions/handling_transaction.dart';
 
@@ -22,6 +23,7 @@ class SignInControllerImp extends SignInController {
   SignInData signInData = SignInData(Get.find());
   // List data = [];
   StatusRequest? statusRequest;
+  MyServices myservices = Get.find();
   @override
   signIn() async {
     if (formState.currentState!.validate()) {
@@ -32,6 +34,13 @@ class SignInControllerImp extends SignInController {
       statusRequest = handlingTransaction(response);
 
       if (statusRequest == StatusRequest.success) {
+        var res = response['data'];
+        myservices.sharedPreferences.setString('id', "${res['user_id']}");
+        myservices.sharedPreferences.setString('name', res['user_name']);
+        myservices.sharedPreferences.setString('email', res['user_email']);
+        myservices.sharedPreferences.setString('phone', res['user_phone']);
+        myservices.sharedPreferences.setInt('step', 2);
+
         Get.offNamed(AppRoute.home);
       } else {
         Get.defaultDialog(
@@ -49,10 +58,6 @@ class SignInControllerImp extends SignInController {
 
   @override
   void onInit() {
-    FirebaseMessaging.instance.getToken().then((value) => (value) {
-          print(value);
-          String? token = value;
-        });
     email = TextEditingController();
     password = TextEditingController();
     hidePassword = true;
