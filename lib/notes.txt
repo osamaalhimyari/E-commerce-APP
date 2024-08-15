@@ -1,0 +1,18 @@
+/*
+1) view: // for intracting with user
+        1- screen 
+        2- widget
+2) data: // for dealing with data  models and sourcee
+        1- dataSource
+        2- model
+3) core: //  all functions that are requierd in the project
+        1- class
+        2- functions
+        3- shared
+        4- constant 
+        5- localization // langs
+        6- services // getx
+4) controller: // logic 
+
+
+**/
