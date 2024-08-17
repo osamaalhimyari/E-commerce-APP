@@ -1,6 +1,8 @@
 class AppLinks {
   // static const String server = "http://localhost/courseFiles/ecommerce";
-  static const String server = "http://192.168.48.18/courseFiles/ecommerce";
+  static const String server = "http://192.168.124.23/courseFiles/ecommerce";
+  static const String imagestCategories = "$server/upload/categories";
+  static const String imagestItems = "$server/upload/items";
   static const String test = "$server/test.php";
 
   //======================== Auth ======================= //
@@ -17,7 +19,7 @@ class AppLinks {
   static const String verfyCode = "$_forgetPassRoot/verfycode.php";
 
   //======================== pages          ======================= //
-  static const String _pagesRoot = "$server";
+  static const String _pagesRoot = server;
   // home
   static const String home = "$_pagesRoot/home.php";
 }

@@ -1,3 +1,4 @@
+import 'package:ecommerce2/core/constants/routes.dart';
 import 'package:ecommerce2/core/services/services.dart';
 import 'package:ecommerce2/data/datasource/remote/pages/home.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ abstract class HomePageController extends GetxController {
   late TextEditingController search;
   getData();
   initData();
+  goToItems(int index);
 }
 
 class HomePageControllerImp extends HomePageController {
@@ -18,6 +20,7 @@ class HomePageControllerImp extends HomePageController {
   String? username;
   HomeData homeData = HomeData(Get.find());
   List categories = [];
+  List items = [];
   late StatusRequest statusRequest;
   @override
   getData() async {
@@ -27,22 +30,36 @@ class HomePageControllerImp extends HomePageController {
     statusRequest = handlingTransaction(response);
 
     if (statusRequest == StatusRequest.success) {
-      categories.addAll(response['data']);
+      categories.addAll(response['categories']);
+      // ;
+      items.addAll(response['items']);
     }
     update();
   }
 
   @override
   void onInit() {
-    search = TextEditingController();
+    initData();
     getData();
     super.onInit();
   }
 
   @override
   initData() {
-    search.dispose();
+    search = TextEditingController();
+  }
 
-    throw UnimplementedError();
+  @override
+  void dispose() {
+    search.dispose();
+    super.dispose();
+  }
+
+  @override
+  goToItems(int index) {
+    Get.toNamed(AppRoute.itemsPage, arguments: {
+      "categories": categories,
+      "index": index,
+    });
   }
 }

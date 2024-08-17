@@ -8,6 +8,10 @@ class ArabicTheme {
     return ThemeData(
       fontFamily: FontAsset.cairo,
       textTheme: const TextTheme(
+        displaySmall: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+        ),
         displayMedium: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 20,

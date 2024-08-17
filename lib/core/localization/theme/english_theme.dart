@@ -8,6 +8,10 @@ class EnglishTheme {
     return ThemeData(
       fontFamily: FontAsset.playfairDisplay,
       textTheme: const TextTheme(
+        displaySmall: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
         displayMedium: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 20,

@@ -29,7 +29,7 @@ class SuccessSignUp extends StatelessWidget {
             const Icon(
               Icons.check_circle_outline,
               size: 200,
-              color: AppColors.prymarColor,
+              color: AppColors.primaryColor,
             ),
             CustomButtonAuth(
                 text: Translate.signIn.tr,

@@ -52,7 +52,7 @@ class TestView extends StatelessWidget {
     Get.put(TestController());
     return Scaffold(
       appBar: AppBar(
-          title: const Text('data'), backgroundColor: AppColors.prymarColor),
+          title: const Text('data'), backgroundColor: AppColors.primaryColor),
       body: GetBuilder<TestController>(
         builder: (controller) {
           return HandlingDataView(
