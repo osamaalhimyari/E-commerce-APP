@@ -12,8 +12,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('main screen');
-
     Get.put(MainScreenControllerImp());
     return GetBuilder<MainScreenControllerImp>(
         builder: (controller) => Scaffold(

@@ -1,15 +1,18 @@
 import 'package:ecommerce2/core/constants/routes.dart';
 import 'package:ecommerce2/core/services/services.dart';
+import 'package:ecommerce2/data/datasource/remote/pages/items.dart';
+import 'package:ecommerce2/data/model/item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/class/status_request.dart';
+import '../../core/functions/handling_transaction.dart';
 
 abstract class ItemsPageController extends GetxController {
   late TextEditingController search;
   getData();
   initData();
-  // goToItems(Map selectedCat);
+  goToProductDetails(ItemModel item);
   changeSelectedCat(int index);
 }
 
@@ -20,8 +23,24 @@ class ItemsPageControllerImp extends ItemsPageController {
   late int selectedCat;
 
   late StatusRequest statusRequest;
+  ItemsData itemsData = ItemsData(Get.find());
+  List data = [];
+  // late StatusRequest statusRequest;
   @override
-  getData() async {}
+  getData() async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+
+    var response =
+        await itemsData.getData("${categories[selectedCat]['cat_id']}");
+
+    statusRequest = handlingTransaction(response);
+
+    if (statusRequest == StatusRequest.success) {
+      data.addAll(response['data']);
+    }
+    update();
+  }
 
   @override
   void onInit() {
@@ -32,9 +51,10 @@ class ItemsPageControllerImp extends ItemsPageController {
   @override
   initData() {
     search = TextEditingController();
-    // getData();
+
     categories = Get.arguments['categories'];
     selectedCat = Get.arguments['index'];
+    getData();
   }
 
   @override
@@ -46,6 +66,12 @@ class ItemsPageControllerImp extends ItemsPageController {
   @override
   changeSelectedCat(int index) {
     selectedCat = index;
+    getData();
     update();
+  }
+
+  @override
+  goToProductDetails(ItemModel item) {
+    Get.toNamed(AppRoute.productDetails, arguments: {"itemModel": item});
   }
 }

@@ -6,7 +6,7 @@ import '../../constants/fonts_assets.dart';
 class ArabicTheme {
   static ThemeData get() {
     return ThemeData(
-      fontFamily: FontAsset.cairo,
+      fontFamily: AppFontAsset.cairo,
       textTheme: const TextTheme(
         displaySmall: TextStyle(
           fontWeight: FontWeight.bold,

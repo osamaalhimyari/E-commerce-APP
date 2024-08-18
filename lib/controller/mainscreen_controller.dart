@@ -32,8 +32,8 @@ class MainScreenControllerImp extends MainScreenController {
   ];
 
   @override
-  changePage(int i) {
-    currentpage = i;
+  changePage(int currentpage) {
+    currentpage = this.currentpage;
     update();
   }
 }

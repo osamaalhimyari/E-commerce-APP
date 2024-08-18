@@ -5,17 +5,24 @@ import '../constants/json_image_assets.dart';
 import 'status_request.dart';
 
 class HandlingDataView extends StatelessWidget {
-  final StatusRequest statusRequest;
+  final StatusRequest? statusRequest;
   final Widget child;
+  final bool returnChildOnFilure;
   const HandlingDataView(
-      {super.key, required this.statusRequest, required this.child});
+      {super.key,
+      required this.statusRequest,
+      required this.child,
+      this.returnChildOnFilure = true});
 
   @override
   Widget build(BuildContext context) {
     return statusRequest == StatusRequest.loading
         ? Center(
-            child: Lottie.asset(AppJasonImageAsset.loading,
-                width: 100, height: 100))
+            child: Lottie.asset(
+            AppJasonImageAsset.loading,
+            width: 100,
+            height: 100,
+          ))
         : statusRequest == StatusRequest.offlineFailur
             ? Center(
                 child: Lottie.asset(AppJasonImageAsset.offline,

@@ -1,5 +1,5 @@
 import 'package:ecommerce2/app_links.dart';
-import 'package:ecommerce2/data/model/item_category.dart';
+import 'package:ecommerce2/data/model/item_model.dart';
 import 'package:ecommerce2/view/widget/customappbar.dart';
 import 'package:ecommerce2/view/widget/home/custom_title_home.dart';
 import 'package:ecommerce2/view/widget/home/list_items.dart';
@@ -17,8 +17,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('home');
-
     Get.put(HomePageControllerImp());
     return GetBuilder<HomePageControllerImp>(
         builder: (controller) => Container(

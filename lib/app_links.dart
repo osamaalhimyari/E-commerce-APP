@@ -22,4 +22,6 @@ class AppLinks {
   static const String _pagesRoot = server;
   // home
   static const String home = "$_pagesRoot/home.php";
+  // items
+  static const String items = "$_pagesRoot/items/items.php";
 }

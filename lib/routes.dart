@@ -1,4 +1,5 @@
 import 'package:ecommerce2/view/screen/mainscreen.dart';
+import 'package:ecommerce2/view/screen/pages/produc_detail_page.dart';
 import 'package:get/get.dart';
 import 'core/constants/routes.dart';
 import 'core/middleware/my_middleware.dart';
@@ -11,7 +12,7 @@ import 'view/screen/auth/signin.dart';
 import 'view/screen/auth/ForgetPassword/success_reset_password.dart';
 import 'view/screen/auth/signup/verfy_code_signup.dart';
 import 'view/screen/onboarding.dart';
-import 'view/screen/pages/Items_page.dart';
+import 'view/screen/pages/items_page.dart';
 
 List<GetPage<dynamic>>? routesPages = [
   // GetPage(name: '/', page: () => const TestView()),
@@ -29,4 +30,6 @@ List<GetPage<dynamic>>? routesPages = [
   GetPage(name: AppRoute.verfyCodeSignUp, page: () => const VerfyCodeSignUp()),
   GetPage(name: AppRoute.home, page: () => const MainScreen()),
   GetPage(name: AppRoute.itemsPage, page: () => const ItemsPage()),
+  GetPage(
+      name: AppRoute.productDetails, page: () => const ProductDetailsPage()),
 ];

@@ -6,7 +6,7 @@ import '../../constants/fonts_assets.dart';
 class EnglishTheme {
   static ThemeData get() {
     return ThemeData(
-      fontFamily: FontAsset.playfairDisplay,
+      fontFamily: AppFontAsset.playfairDisplay,
       textTheme: const TextTheme(
         displaySmall: TextStyle(
           fontWeight: FontWeight.bold,
@@ -28,11 +28,12 @@ class EnglishTheme {
         bodyLarge: TextStyle(
             height: 2,
             fontSize: 20,
+            // fontFamily: ,
             color: AppColors.gery,
             fontWeight: FontWeight.bold),
       ),
       colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      useMaterial3: true,
+      // useMaterial3: true,
     );
   }
 }

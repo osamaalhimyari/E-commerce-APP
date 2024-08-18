@@ -5,7 +5,7 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 import '../../../app_links.dart';
 import '../../../controller/pages/home_page_controller.dart';
-import '../../../data/model/item_category.dart';
+import '../../../data/model/item_model.dart';
 
 class CustomListItemsHome extends GetView<HomePageControllerImp> {
   const CustomListItemsHome({super.key});
