@@ -14,16 +14,14 @@ class GrideViewFavorite extends GetView<MyFavoriteControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-   
     return GetBuilder<MyFavoriteControllerImp>(
       builder: (controller) => GridView.builder(
         shrinkWrap: true,
-        itemCount: controller.data.length,
+        itemCount: controller.data2.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 0.7),
         itemBuilder: (context, index) {
-          MyFavoriteModel item =
-              MyFavoriteModel.fromJson(controller.data[index]);
+          MyFavoriteModel item = (controller.data2[index]);
           return InkWell(
             onTap: () {
               // controller.goToProductDetails(item);

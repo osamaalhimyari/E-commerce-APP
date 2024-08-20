@@ -28,7 +28,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
 
       statusRequest = handlingTransaction(response);
       if (statusRequest == StatusRequest.success) {
-        Get.offNamed(AppRoute.successResetPassword);
+        Get.offNamed(AppRoute.signIn);
       } else {
         // approved = false;
         Get.defaultDialog(title: 'Error', middleText: "unKonkwn Error");

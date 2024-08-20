@@ -41,6 +41,7 @@ class Translate {
   static String signInMessage = 'signInMessage';
   static String verfyCode = 'verfyCode';
   static String verfyCodeMessage = 'verfyCodeMessage';
+  static String resendCode = 'resendCode';
   static String successSignUp = 'successSignUp';
   static String successResetPassword = 'successResetPassword';
 }

@@ -1,5 +1,7 @@
+import 'package:ecommerce2/core/functions/user_prefs_data.dart';
 import 'package:ecommerce2/core/services/services.dart';
 
+import '../../data/datasource/remote/auth/resendcode_data.dart';
 import '/core/constants/routes.dart';
 import '/data/datasource/remote/auth/signin_data.dart';
 import 'package:flutter/material.dart';
@@ -35,13 +37,18 @@ class SignInControllerImp extends SignInController {
 
       if (statusRequest == StatusRequest.success) {
         var res = response['data'];
-        myservices.sharedPreferences.setString('userid', "${res['user_id']}");
-        myservices.sharedPreferences.setString('name', res['user_name']);
-        myservices.sharedPreferences.setString('email', res['user_email']);
-        myservices.sharedPreferences.setString('phone', res['user_phone']);
-        myservices.sharedPreferences.setInt('step', 2);
+        await saveUserPrefs(res);
+        if (res['user_approve'] == 1) {
+          await myservices.sharedPreferences.setInt('step', 2);
+          Get.offNamed(AppRoute.home);
+        } else {
+          ResendcodeData resendCode = ResendcodeData(Get.find());
 
-        Get.offNamed(AppRoute.home);
+          await resendCode.postData(email.text, 1);
+
+          Get.toNamed(AppRoute.verfyCodeSignUp,
+              arguments: {'email': email.text});
+        }
       } else {
         Get.defaultDialog(
             title: 'Error', middleText: "wrong email or password ");

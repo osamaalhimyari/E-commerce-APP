@@ -21,8 +21,8 @@ abstract class MyFavoriteController extends GetxController {
 class MyFavoriteControllerImp extends MyFavoriteController {
   FavoriteData favoriteData = FavoriteData(Get.find());
 
-  List data = [];
-
+  // List data = [];
+  List<MyFavoriteModel> data2 = [];
   late StatusRequest statusRequest;
 
   MyServices myServices = Get.find();
@@ -37,7 +37,7 @@ class MyFavoriteControllerImp extends MyFavoriteController {
 
   @override
   removeFavorite(String itemsid) async {
-    data.clear();
+    data2.clear();
     statusRequest = StatusRequest.loading;
     var response = await favoriteData.removeData(
         myServices.sharedPreferences.getString("userid")!, itemsid);
@@ -63,7 +63,8 @@ class MyFavoriteControllerImp extends MyFavoriteController {
     //   },
     // );
     favoriteData.deleteData(favId);
-    data.removeWhere((element) => element['fav_id'] == favId);
+    // data.removeWhere((element) => element['fav_id'] == favId);
+    data2.removeWhere((element) => element.favId.toString() == favId);
     update();
   }
 
@@ -89,7 +90,8 @@ class MyFavoriteControllerImp extends MyFavoriteController {
     statusRequest = handlingTransaction(response);
 
     if (statusRequest == StatusRequest.success) {
-      data.addAll(response['data']);
+      List responsedata = response['data'];
+      data2.addAll(responsedata.map((e) => MyFavoriteModel.fromJson(e)));
     }
     update();
   }

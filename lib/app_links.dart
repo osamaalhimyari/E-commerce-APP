@@ -11,6 +11,7 @@ class AppLinks {
   static const String signUp = "$_authRoot/signUp.php";
   static const String verfySignUp = "$_authRoot/verfycode.php";
   static const String signIn = "$_authRoot/signin.php";
+  static const String resendCode = "$_authRoot/resendCode.php";
   //======================== porgetpassword ======================= //
 
   static const String _forgetPassRoot = "$server/forget_password";

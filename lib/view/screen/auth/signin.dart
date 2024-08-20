@@ -1,7 +1,7 @@
 import '/controller/auth/signin_controller.dart';
 import '/core/functions/alert_exit_app.dart';
 import '/view/widget/auth/custom_button.dart';
-import '/view/widget/auth/custom_text_sign_in_up.dart';
+import '../../widget/auth/custom_tapped_text.dart';
 import '/view/widget/auth/custom_text_title.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -88,7 +88,7 @@ class SignIn extends StatelessWidget {
                               controller.signIn();
                             }),
                         const SizedBox(height: 25),
-                        CustomTextSignInUp(
+                        CustomTappedText(
                             text1: Translate.dontHaveAccount.tr,
                             text2: Translate.signUp.tr,
                             onTap: () {

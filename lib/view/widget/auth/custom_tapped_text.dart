@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../../core/constants/color_app.dart';
 
-class CustomTextSignInUp extends StatelessWidget {
+class CustomTappedText extends StatelessWidget {
   final String text1;
   final String text2;
   final void Function() onTap;
-  const CustomTextSignInUp(
+  const CustomTappedText(
       {super.key,
       required this.text1,
       required this.text2,

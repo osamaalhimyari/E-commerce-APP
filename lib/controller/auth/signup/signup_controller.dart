@@ -1,3 +1,4 @@
+import '../../../core/functions/user_prefs_data.dart';
 import '/data/datasource/remote/auth/signup_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,7 +35,12 @@ class SignUpControllerImp extends SignUpController {
       statusRequest = handlingTransaction(response);
 
       if (statusRequest == StatusRequest.success) {
-        // data.addAll(response['data']);
+        await saveUserPrefs({
+          'user_id': name.text,
+          'user_name': email.text,
+          'user_email': password.text,
+          'user_phone': phone.text,
+        });
         Get.offNamed(AppRoute.verfyCodeSignUp,
             arguments: {"email": email.text});
       } else {

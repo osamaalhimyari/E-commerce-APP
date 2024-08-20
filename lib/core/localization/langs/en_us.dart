@@ -28,6 +28,7 @@ class EnUs {
     'successResetPassword': 'Success Reset Password',
     'warning': 'warning',
     'yes': 'yes',
+    'resendCode': 'resend verfication code? ',
     'cancel': 'cancel',
     'alertexitingApp': 'are you sure of exiting app?',
   };

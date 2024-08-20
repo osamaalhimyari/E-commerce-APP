@@ -1,3 +1,6 @@
+import 'package:ecommerce2/data/datasource/remote/auth/resendcode_data.dart';
+
+import '../../../core/services/services.dart';
 import '/core/constants/routes.dart';
 import 'package:get/get.dart';
 
@@ -9,12 +12,14 @@ abstract class VerfyCodeSignUpController extends GetxController {
   checkCode(String verfyCode);
   changeApproved(bool state);
   loading();
+  reSendCode();
 }
 
 class VerfyCodeSignUpControllerImp extends VerfyCodeSignUpController {
   late String? email;
   late bool approved = true;
   VerfyCodeSignUpData verfyCodeSignUpData = VerfyCodeSignUpData(Get.find());
+  ResendcodeData resendVCode = ResendcodeData(Get.find());
   StatusRequest? statusRequest;
   @override
   changeApproved(bool state) {
@@ -30,7 +35,8 @@ class VerfyCodeSignUpControllerImp extends VerfyCodeSignUpController {
 
     statusRequest = handlingTransaction(response);
     if (statusRequest == StatusRequest.success) {
-      Get.offNamed(AppRoute.successSignUp);
+      await myservices.sharedPreferences.setInt('step', 2);
+      Get.offNamed(AppRoute.home);
     } else {
       approved = false;
       Get.defaultDialog(
@@ -49,5 +55,15 @@ class VerfyCodeSignUpControllerImp extends VerfyCodeSignUpController {
   @override
   loading() {
     return statusRequest == StatusRequest.loading;
+  }
+
+  MyServices myservices = Get.find();
+  @override
+  reSendCode() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    await resendVCode.postData(email!, 1);
+
+    statusRequest = StatusRequest.success;
   }
 }

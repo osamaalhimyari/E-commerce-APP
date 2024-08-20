@@ -6,6 +6,7 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import '../../../../core/localization/langs/translation.dart';
 import '../../../../controller/auth/signup/verfy_code_signup_controller.dart';
+import '../../../widget/auth/custom_tapped_text.dart';
 import '../../../widget/auth/custom_text_body.dart';
 
 class VerfyCodeSignUp extends StatelessWidget {
@@ -33,7 +34,16 @@ class VerfyCodeSignUp extends StatelessWidget {
                   alignment: Alignment.center,
                   child: ListView(children: [
                     const SizedBox(height: 20),
-                    CustomBodyAuth(text: Translate.verfyCodeMessage.tr),
+                    CustomBodyAuth(
+                        text:
+                            "${Translate.verfyCodeMessage.tr} ${controller.email} "),
+                    CustomTappedText(
+                      text1: "",
+                      text2: "${Translate.resendCode.tr}",
+                      onTap: () {
+                        controller.reSendCode();
+                      },
+                    ),
                     const SizedBox(height: 65),
                     OtpTextField(
                       fieldWidth: 50,

@@ -9,7 +9,7 @@ import '../../../../core/functions/valid_input.dart';
 import '../../../../core/localization/langs/translation.dart';
 import '../../../widget/auth/custom_text_body.dart';
 import '../../../widget/auth/custom_text_form.dart';
-import '../../../widget/auth/custom_text_sign_in_up.dart';
+import '../../../widget/auth/custom_tapped_text.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -87,7 +87,7 @@ class SignUp extends StatelessWidget {
                         controller.signUp();
                       }),
                   const SizedBox(height: 25),
-                  CustomTextSignInUp(
+                  CustomTappedText(
                       text1: Translate.haveAccount.tr,
                       text2: Translate.signIn.tr,
                       onTap: () {
