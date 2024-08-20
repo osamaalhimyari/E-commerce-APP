@@ -24,4 +24,10 @@ class AppLinks {
   static const String home = "$_pagesRoot/home.php";
   // items
   static const String items = "$_pagesRoot/items/items.php";
+  // favorite
+  static const String favoriteAdd = "$_pagesRoot/favorite/add.php";
+  static const String favroiteDelete =
+      "$_pagesRoot/favorite/deletefromfavroite.php";
+  static const String favroiteRemove = "$_pagesRoot/favorite/remove.php";
+  static const String favroiteView = "$_pagesRoot/favorite/view.php";
 }

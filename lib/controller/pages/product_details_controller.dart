@@ -1,3 +1,4 @@
+import 'package:ecommerce2/core/class/status_request.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../data/model/item_model.dart';
@@ -10,6 +11,12 @@ abstract class ProductDetailsController extends GetxController {
 
 class ProductDetailsControllerImp extends ProductDetailsController {
   late ItemModel itemsModel;
+  StatusRequest? statusRequest;
+  List subitems = [
+    {"name": "red", "id": 1, "active": '0'},
+    {"name": "yallow", "id": 2, "active": '0'},
+    {"name": "black", "id": 3, "active": '1'}
+  ];
 
   @override
   void onInit() {
@@ -19,13 +26,11 @@ class ProductDetailsControllerImp extends ProductDetailsController {
 
   @override
   onAdd() {
-    // TODO: implement onAdd
-    throw UnimplementedError();
+    //
   }
 
   @override
   onRemove() {
-    // TODO: implement onRemove
-    throw UnimplementedError();
+    //
   }
 }

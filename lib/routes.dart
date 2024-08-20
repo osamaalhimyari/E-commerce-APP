@@ -1,4 +1,5 @@
 import 'package:ecommerce2/view/screen/mainscreen.dart';
+import 'package:ecommerce2/view/screen/pages/myfavorite_page.dart';
 import 'package:ecommerce2/view/screen/pages/produc_detail_page.dart';
 import 'package:get/get.dart';
 import 'core/constants/routes.dart';
@@ -32,4 +33,5 @@ List<GetPage<dynamic>>? routesPages = [
   GetPage(name: AppRoute.itemsPage, page: () => const ItemsPage()),
   GetPage(
       name: AppRoute.productDetails, page: () => const ProductDetailsPage()),
+  GetPage(name: AppRoute.favorite, page: () => const MyFavoritePage()),
 ];

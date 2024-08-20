@@ -25,7 +25,9 @@ class HomePage extends StatelessWidget {
               children: [
                 CustomAppBar(
                     titleappbar: 'find product',
-                    onPressedIconFavorite: () {},
+                    onPressedIconFavorite: () {
+                      controller.goToFavorite();
+                    },
                     mycontroller: controller.search),
                 Center(
                   child: HandlingDataView(

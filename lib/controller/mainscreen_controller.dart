@@ -2,7 +2,7 @@ import 'package:ecommerce2/test.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../view/screen/pages/home.dart';
+import '../view/screen/pages/home_page.dart';
 
 abstract class MainScreenController extends GetxController {
   changePage(int currentpage);

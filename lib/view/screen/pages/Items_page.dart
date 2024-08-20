@@ -20,7 +20,9 @@ class ItemsPage extends StatelessWidget {
           children: [
             CustomAppBar(
                 titleappbar: 'items',
-                onPressedIconFavorite: () {},
+                onPressedIconFavorite: () {
+                  controller.goToFavorite();
+                },
                 mycontroller: controller.search),
             const CustomListCategoriesItems(),
             GetBuilder<ItemsPageControllerImp>(

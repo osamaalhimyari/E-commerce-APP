@@ -35,7 +35,7 @@ class SignInControllerImp extends SignInController {
 
       if (statusRequest == StatusRequest.success) {
         var res = response['data'];
-        myservices.sharedPreferences.setString('id', "${res['user_id']}");
+        myservices.sharedPreferences.setString('userid', "${res['user_id']}");
         myservices.sharedPreferences.setString('name', res['user_name']);
         myservices.sharedPreferences.setString('email', res['user_email']);
         myservices.sharedPreferences.setString('phone', res['user_phone']);

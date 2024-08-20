@@ -12,6 +12,7 @@ abstract class HomePageController extends GetxController {
   getData();
   initData();
   goToItems(int index);
+  goToFavorite();
 }
 
 class HomePageControllerImp extends HomePageController {
@@ -61,5 +62,10 @@ class HomePageControllerImp extends HomePageController {
       "categories": categories,
       "index": index,
     });
+  }
+
+  @override
+  goToFavorite() {
+    Get.toNamed(AppRoute.favorite);
   }
 }

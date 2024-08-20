@@ -4,8 +4,9 @@ import '/core/class/crud_transactions.dart';
 class ItemsData {
   CrudTrans crud;
   ItemsData(this.crud);
-  getData(String id) async {
-    var response = await crud.postData(AppLinks.items, {"catid": id});
+  getData(String id, String userId) async {
+    var response =
+        await crud.postData(AppLinks.items, {"catid": id, "userid": userId});
     return response.fold((l) => l, (r) => r);
   }
 }

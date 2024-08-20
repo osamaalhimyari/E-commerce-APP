@@ -15,7 +15,7 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: 180,
+          height: 200,
           decoration: const BoxDecoration(color: AppColors.secondaryColor),
         ),
         Positioned(

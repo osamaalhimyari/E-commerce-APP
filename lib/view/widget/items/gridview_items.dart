@@ -5,6 +5,7 @@ import 'package:ecommerce2/data/model/item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../controller/pages/favorite_controller.dart';
 import '../../../controller/pages/items_controller.dart';
 
 class GrideViewItem extends GetView<ItemsPageControllerImp> {
@@ -12,12 +13,18 @@ class GrideViewItem extends GetView<ItemsPageControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+    FavoriteControllerImp controllerFav = Get.put(FavoriteControllerImp());
+
     return GridView.builder(
       shrinkWrap: true,
       itemCount: controller.data.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, childAspectRatio: 0.7),
       itemBuilder: (context, index) {
+        controllerFav.isFavorite[controller.data[index]['item_id']] =
+            controller.data[index]['favorite'].toString();
+        print(
+            controllerFav.isFavorite[controller.data[index]['item_id']] == '1');
         return ItemInItems(
           item: ItemModel.fromJson(controller.data[index]),
         );
@@ -28,7 +35,12 @@ class GrideViewItem extends GetView<ItemsPageControllerImp> {
 
 class ItemInItems extends GetView<ItemsPageControllerImp> {
   final ItemModel item;
-  const ItemInItems({super.key, required this.item});
+  // final String isFavorite;
+  const ItemInItems({
+    super.key,
+    required this.item,
+    // required this.isFavorite,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -55,9 +67,25 @@ class ItemInItems extends GetView<ItemsPageControllerImp> {
                 children: [
                   Text("${item.itemPrice}\$",
                       style: const TextStyle(color: AppColors.green)),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.favorite_border_outlined)),
+                  GetBuilder<FavoriteControllerImp>(builder: (controller2) {
+                    bool state = controller2.isFavorite[item.itemId] == '1';
+                    return IconButton(
+                        onPressed: () {
+                          if (state) {
+                            controller2.setFavorite(item.itemId!, '0');
+                            controller2.removeFavorite('${item.itemId}');
+                          } else {
+                            controller2.setFavorite(item.itemId!, '1');
+                            controller2.addFavorite('${item.itemId}');
+                          }
+                        },
+                        icon: Icon(
+                          state
+                              ? Icons.favorite
+                              : Icons.favorite_border_outlined,
+                          color: state ? AppColors.red : AppColors.gery,
+                        ));
+                  })
                 ],
               )
             ],

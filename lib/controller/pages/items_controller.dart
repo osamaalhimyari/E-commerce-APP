@@ -14,6 +14,7 @@ abstract class ItemsPageController extends GetxController {
   initData();
   goToProductDetails(ItemModel item);
   changeSelectedCat(int index);
+  goToFavorite();
 }
 
 class ItemsPageControllerImp extends ItemsPageController {
@@ -31,8 +32,9 @@ class ItemsPageControllerImp extends ItemsPageController {
     data.clear();
     statusRequest = StatusRequest.loading;
 
-    var response =
-        await itemsData.getData("${categories[selectedCat]['cat_id']}");
+    var response = await itemsData.getData(
+        "${categories[selectedCat]['cat_id']}",
+        myservices.sharedPreferences.getString('userid')!);
 
     statusRequest = handlingTransaction(response);
 
@@ -73,5 +75,10 @@ class ItemsPageControllerImp extends ItemsPageController {
   @override
   goToProductDetails(ItemModel item) {
     Get.toNamed(AppRoute.productDetails, arguments: {"itemModel": item});
+  }
+
+  @override
+  goToFavorite() {
+    Get.toNamed(AppRoute.favorite);
   }
 }
