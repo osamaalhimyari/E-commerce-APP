@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce2/app_links.dart';
 import 'package:ecommerce2/core/constants/color_app.dart';
+import 'package:ecommerce2/core/constants/image_assets.dart';
+import 'package:ecommerce2/core/functions/subtract_text.dart';
 import 'package:ecommerce2/data/model/item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/pages/favorite_controller.dart';
+import '../../../controller/shared/favorite_controller.dart';
 import '../../../controller/pages/items_controller.dart';
 
 class GrideViewItem extends GetView<ItemsPageControllerImp> {
@@ -23,8 +25,6 @@ class GrideViewItem extends GetView<ItemsPageControllerImp> {
       itemBuilder: (context, index) {
         controllerFav.isFavorite[controller.data[index]['item_id']] =
             controller.data[index]['favorite'].toString();
-        print(
-            controllerFav.isFavorite[controller.data[index]['item_id']] == '1');
         return ItemInItems(
           item: ItemModel.fromJson(controller.data[index]),
         );
@@ -49,47 +49,80 @@ class ItemInItems extends GetView<ItemsPageControllerImp> {
         controller.goToProductDetails(item);
       },
       child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Hero(
-                tag: "${item.itemId}",
-                child: CachedNetworkImage(
-                    imageUrl: "${AppLinks.imagestItems}/${item.itemImage}"),
-              ),
-              Text('${item.itemNameEn}',
-                  style: Theme.of(context).textTheme.bodyLarge),
-              Text("${item.itemDescEn}"),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        margin: const EdgeInsets.all(10),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("${item.itemPrice}\$",
-                      style: const TextStyle(color: AppColors.green)),
-                  GetBuilder<FavoriteControllerImp>(builder: (controller2) {
-                    bool state = controller2.isFavorite[item.itemId] == '1';
-                    return IconButton(
-                        onPressed: () {
-                          if (state) {
-                            controller2.setFavorite(item.itemId!, '0');
-                            controller2.removeFavorite('${item.itemId}');
-                          } else {
-                            controller2.setFavorite(item.itemId!, '1');
-                            controller2.addFavorite('${item.itemId}');
-                          }
-                        },
-                        icon: Icon(
-                          state
-                              ? Icons.favorite
-                              : Icons.favorite_border_outlined,
-                          color: state ? AppColors.red : AppColors.gery,
-                        ));
-                  })
+                  Hero(
+                    tag: "${item.itemId}",
+                    child: CachedNetworkImage(
+                        height: 140,
+                        imageUrl: "${AppLinks.imagestItems}/${item.itemImage}"),
+                  ),
+                  Text('${item.itemNameEn}',
+                      style: Theme.of(context).textTheme.bodyLarge),
+                  Text(subtractText(item.itemDescEn)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          if (!(item.itemDiscount == null ||
+                              item.itemDiscount == 0))
+                            Text(
+                              "${item.itemPrice}\$ ",
+                              style: const TextStyle(
+                                  color: AppColors.red,
+                                  decoration: TextDecoration.lineThrough,
+                                  decorationColor: Colors.black,
+                                  decorationThickness: 3),
+                            ),
+                          Text("${item.itemPrice}\$",
+                              style: const TextStyle(
+                                color: AppColors.green,
+                                fontWeight: FontWeight.bold,
+                              )),
+                        ],
+                      ),
+                      GetBuilder<FavoriteControllerImp>(builder: (controller2) {
+                        bool state = controller2.isFavorite[item.itemId] == '1';
+                        return IconButton(
+                            onPressed: () {
+                              if (state) {
+                                controller2.setFavorite(item.itemId!, '0');
+                                controller2.removeFavorite('${item.itemId}');
+                              } else {
+                                controller2.setFavorite(item.itemId!, '1');
+                                controller2.addFavorite('${item.itemId}');
+                              }
+                            },
+                            icon: Icon(
+                              state
+                                  ? Icons.favorite
+                                  : Icons.favorite_border_outlined,
+                              color: state ? AppColors.red : AppColors.gery,
+                            ));
+                      })
+                    ],
+                  )
                 ],
-              )
-            ],
-          ),
+              ),
+            ),
+            Positioned(
+                top: 20,
+                left: 2,
+                child: (item.itemDiscount == null || item.itemDiscount == 0)
+                    ? const Text('')
+                    : Image.asset(
+                        AppImageAsset.saleOne,
+                        height: 40,
+                        width: 40,
+                      ))
+          ],
         ),
       ),
     );

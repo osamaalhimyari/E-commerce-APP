@@ -13,7 +13,6 @@ class ProductDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ProductDetailsControllerImp controller =
     Get.put(ProductDetailsControllerImp());
     return Scaffold(
         bottomNavigationBar: Container(
@@ -44,7 +43,7 @@ class ProductDetailsPage extends StatelessWidget {
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("${controller.itemsModel.itemNameEn}",
+                              Text("${controller.itemModel.itemNameEn}",
                                   style: Theme.of(context)
                                       .textTheme
                                       .displayLarge!
@@ -52,19 +51,21 @@ class ProductDetailsPage extends StatelessWidget {
                                           // color: AppColors.fourthColor,
                                           )),
                               const SizedBox(height: 10),
-                              const PriceAndCountItems(
-                                  // onAdd: () {
-                                  //   controller.add();
-                                  // },
-                                  // onRemove: () {
-                                  //   controller.remove();
-                                  // },
-                                  // price:
-                                  //     "${controller.itemsModel.itemsPriceDiscount}",
-                                  // count: "${controller.countitems}"
-                                  ),
+                              PriceAndCountItems(
+                                  onAdd: () {
+                                    // print(controller.itemModel.itemId);
+                                    controller.addToCart(
+                                        controller.itemModel.itemId!);
+                                  },
+                                  onDelete: () {
+                                    controller.deleteFromCart(
+                                        controller.itemModel.itemId!);
+                                  },
+                                  price: '20',
+                                  // "${controller.itemModel.itemsPriceDiscount}",
+                                  count: "${controller.countitems}"),
                               const SizedBox(height: 10),
-                              Text("${controller.itemsModel.itemDescEn}",
+                              Text("${controller.itemModel.itemDescEn}",
                                   style: Theme.of(context)
                                       .textTheme
                                       .displayLarge!

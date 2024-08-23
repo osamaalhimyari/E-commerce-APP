@@ -12,4 +12,9 @@ class AppRoute {
   static const String itemsPage = "/itemsPage";
   static const String productDetails = "/productDetails";
   static const String favorite = "/favorite";
+  static const String cartPage = "/cartPage";
+  static const String addressadd = "/addressaddPage";
+  static const String addressview = "/addressviewPage";
+  static const String addressdetail = "/addressdetailPage";
+  static const String checkoutpage = "/checkoutpage";
 }

@@ -23,10 +23,10 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
             right: Get.width / 8,
             left: Get.width / 8,
             child: Hero(
-              tag: "${controller.itemsModel.itemId}",
+              tag: "${controller.itemModel.itemId}",
               child: CachedNetworkImage(
                 imageUrl:
-                    "${AppLinks.imagestItems}/${controller.itemsModel.itemImage!}",
+                    "${AppLinks.imagestItems}/${controller.itemModel.itemImage!}",
                 height: 250,
                 fit: BoxFit.fill,
               ),

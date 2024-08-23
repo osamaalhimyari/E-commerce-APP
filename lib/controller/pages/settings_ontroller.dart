@@ -12,6 +12,6 @@ class SettingsControllerImp extends SettingsController {
   @override
   logout() {
     myservices.sharedPreferences.clear();
-    Get.offAll(AppRoute.signIn);
+    Get.offAllNamed(AppRoute.signIn);
   }
 }

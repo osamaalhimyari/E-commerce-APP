@@ -8,15 +8,16 @@ class CustomTextFormAuth extends StatelessWidget {
   final bool obscureText;
   final String? Function(String? val)? validator;
   final TextEditingController controller;
-  const CustomTextFormAuth(
-      {super.key,
-      required this.hintText,
-      required this.lableText,
-      required this.icon,
-      required this.controller,
-      required this.validator,
-      this.keyboardType,
-      this.obscureText = false});
+  const CustomTextFormAuth({
+    super.key,
+    required this.hintText,
+    required this.lableText,
+    required this.icon,
+    required this.controller,
+    required this.validator,
+    this.keyboardType,
+    this.obscureText = false,
+  });
 
   @override
   Widget build(BuildContext context) {

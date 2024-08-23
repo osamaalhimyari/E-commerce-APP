@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../view/screen/pages/home_page.dart';
+import '../view/screen/pages/settings_page.dart';
 
 abstract class MainScreenController extends GetxController {
-  changePage(int currentpage);
+  changePage(int index);
 }
 
 class MainScreenControllerImp extends MainScreenController {
@@ -15,7 +16,7 @@ class MainScreenControllerImp extends MainScreenController {
     const HomePage(),
     const TestView(),
     const TestView(),
-    const TestView(),
+    const SettingsPage(),
     // NotificationView() ,
     // Column(
     //   mainAxisAlignment: MainAxisAlignment.center,
@@ -32,8 +33,8 @@ class MainScreenControllerImp extends MainScreenController {
   ];
 
   @override
-  changePage(int currentpage) {
-    currentpage = this.currentpage;
+  changePage(int index) {
+    currentpage = index;
     update();
   }
 }

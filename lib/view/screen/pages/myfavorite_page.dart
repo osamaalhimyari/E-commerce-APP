@@ -29,6 +29,5 @@ class MyFavoritePage extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

@@ -7,6 +7,17 @@ class EnglishTheme {
   static ThemeData get() {
     return ThemeData(
       fontFamily: AppFontAsset.playfairDisplay,
+      appBarTheme: AppBarTheme(
+        centerTitle: true,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: AppColors.primaryColor),
+        titleTextStyle: const TextStyle(
+            color: AppColors.primaryColor,
+            fontWeight: FontWeight.bold,
+            fontFamily: AppFontAsset.playfairDisplay,
+            fontSize: 25),
+        backgroundColor: Colors.grey[50],
+      ),
       textTheme: const TextTheme(
         displaySmall: TextStyle(
           fontWeight: FontWeight.bold,

@@ -24,11 +24,34 @@ class AppLinks {
   // home
   static const String home = "$_pagesRoot/home.php";
   // items
+  static const String search = "$_pagesRoot/items/search.php";
   static const String items = "$_pagesRoot/items/items.php";
+  /////////////////
   // favorite
-  static const String favoriteAdd = "$_pagesRoot/favorite/add.php";
-  static const String favroiteDelete =
-      "$_pagesRoot/favorite/deletefromfavroite.php";
-  static const String favroiteRemove = "$_pagesRoot/favorite/remove.php";
-  static const String favroiteView = "$_pagesRoot/favorite/view.php";
+  static const String _favoriteRoot = "$_pagesRoot/favorite";
+  //
+  static const String favoriteAdd = "$_favoriteRoot/add.php";
+  static const String favroiteDelete = "$_favoriteRoot/deletefromfavroite.php";
+  static const String favroiteRemove = "$_favoriteRoot/remove.php";
+  static const String favroiteView = "$_favoriteRoot/view.php";
+  /////////////////
+  // cart
+  static const String _cartRoot = "$_pagesRoot/cart";
+  //
+  static const String cartadd = "$_cartRoot/add.php";
+  static const String cartdelete = "$_cartRoot/delete.php";
+  static const String cartgetcountitems = "$_cartRoot/getcountitems.php";
+  static const String cartview = "$_cartRoot/view.php";
+  /////////////////
+  // address
+  static const String _addressRoot = "$_pagesRoot/adress";
+  //
+  static const String addressadd = "$_addressRoot/add.php";
+  static const String addressdelete = "$_addressRoot/delete.php";
+  static const String addressupdate = "$_addressRoot/edit.php";
+  static const String addressview = "$_addressRoot/view.php";
+  // coupons
+  static const String checkcoupon = "$_pagesRoot/coupon/checkcoupon.php";
+  static const String checkout = "$_pagesRoot/checkout/checkout.php";
+  // static const String checkcoupon = "$_cartRoot/checkcoupon.php";
 }

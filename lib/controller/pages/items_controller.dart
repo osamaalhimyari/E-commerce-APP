@@ -1,3 +1,4 @@
+import 'package:ecommerce2/controller/shared/search_controller.dart';
 import 'package:ecommerce2/core/constants/routes.dart';
 import 'package:ecommerce2/core/services/services.dart';
 import 'package:ecommerce2/data/datasource/remote/pages/items.dart';
@@ -8,8 +9,8 @@ import 'package:get/get.dart';
 import '../../core/class/status_request.dart';
 import '../../core/functions/handling_transaction.dart';
 
-abstract class ItemsPageController extends GetxController {
-  late TextEditingController search;
+abstract class ItemsPageController extends SearchMixController {
+  // late TextEditingController search;
   getData();
   initData();
   goToProductDetails(ItemModel item);
@@ -23,7 +24,6 @@ class ItemsPageControllerImp extends ItemsPageController {
   List categories = [];
   late int selectedCat;
 
-  late StatusRequest statusRequest;
   ItemsData itemsData = ItemsData(Get.find());
   List data = [];
   // late StatusRequest statusRequest;
@@ -56,19 +56,25 @@ class ItemsPageControllerImp extends ItemsPageController {
 
     categories = Get.arguments['categories'];
     selectedCat = Get.arguments['index'];
+    catid = selectedCat;
+    isSearch = false;
     getData();
   }
 
   @override
   void dispose() {
     search.dispose();
+    isSearch = false;
+    catid = 0;
     super.dispose();
   }
 
   @override
   changeSelectedCat(int index) {
     selectedCat = index;
-    getData();
+    catid = index;
+
+    isSearch ? searchData() : getData();
     update();
   }
 

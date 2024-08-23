@@ -39,7 +39,7 @@ class VerfyCodeSignUp extends StatelessWidget {
                             "${Translate.verfyCodeMessage.tr} ${controller.email} "),
                     CustomTappedText(
                       text1: "",
-                      text2: "${Translate.resendCode.tr}",
+                      text2: Translate.resendCode.tr,
                       onTap: () {
                         controller.reSendCode();
                       },

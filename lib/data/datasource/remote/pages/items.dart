@@ -9,4 +9,11 @@ class ItemsData {
         await crud.postData(AppLinks.items, {"catid": id, "userid": userId});
     return response.fold((l) => l, (r) => r);
   }
+
+  searchData(String search) async {
+    var response = await crud.postData(AppLinks.search, {
+      "search": search,
+    });
+    return response.fold((l) => l, (r) => r);
+  }
 }
