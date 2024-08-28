@@ -17,6 +17,9 @@ import 'view/screen/auth/signin.dart';
 import 'view/screen/auth/ForgetPassword/success_reset_password.dart';
 import 'view/screen/auth/signup/verfy_code_signup.dart';
 import 'view/screen/onboarding.dart';
+import 'view/screen/orders/archive.dart';
+import 'view/screen/orders/details.dart';
+import 'view/screen/orders/pending.dart';
 import 'view/screen/pages/checkout.dart';
 import 'view/screen/pages/items_page.dart';
 
@@ -45,4 +48,7 @@ List<GetPage<dynamic>>? routesPages = [
   GetPage(
       name: AppRoute.addressdetail, page: () => const AddressAddDetailsPage()),
   GetPage(name: AppRoute.checkoutpage, page: () => const CheckoutPage()),
+  GetPage(name: AppRoute.orderspending, page: () => const OrdersPending()),
+  GetPage(name: AppRoute.ordersarchive, page: () => const OrdersArchiveView()),
+  GetPage(name: AppRoute.ordersdetails, page: () => const OrdersDetails()),
 ];

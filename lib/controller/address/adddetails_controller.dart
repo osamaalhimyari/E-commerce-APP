@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../core/class/status_request.dart';
-import '../../core/constants/routes.dart';
 import '../../core/services/services.dart';
 import '../../data/datasource/remote/pages/address_data.dart';
 
@@ -18,36 +17,36 @@ class AddAddressDetailsController extends GetxController {
   late TextEditingController city;
   late TextEditingController street;
 
-  String? lat;
-  String? long;
+  double? lat;
+  double? long;
 
   intialData() {
     name = TextEditingController();
     city = TextEditingController();
     street = TextEditingController();
 
-    lat = Get.arguments['lat'];
-    long = Get.arguments['long'];
+    // lat = Get.arguments['lat'] ?? 0;
+    // long = Get.arguments['long'] ?? 0;
   }
 
   addAddress() async {
     statusRequest = StatusRequest.loading;
     update();
-
     var response = await addressData.addData(
-        myServices.sharedPreferences.getString("id")!,
+        myServices.sharedPreferences.getString("userid")!,
         name.text,
         city.text,
         street.text,
-        lat!,
-        long!);
+        "$lat",
+        "$long");
 
     statusRequest = handlingTransaction(response);
 
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
-        Get.offAllNamed(AppRoute.home);
+        // Get.offAllNamed(AppRoute.home);
+        Get.back(result: "success");
       } else {
         statusRequest = StatusRequest.failur;
       }

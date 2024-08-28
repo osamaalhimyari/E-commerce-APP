@@ -1,6 +1,7 @@
 import 'package:ecommerce2/controller/shared/search_controller.dart';
 import 'package:ecommerce2/core/constants/routes.dart';
 import 'package:ecommerce2/core/services/services.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -39,6 +40,7 @@ class HomePageControllerImp extends HomePageController {
 
   @override
   void onInit() {
+    FirebaseMessaging.instance.subscribeToTopic("users");
     initData();
     getData();
     super.onInit();

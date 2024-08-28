@@ -81,7 +81,7 @@ class ItemInItems extends GetView<ItemsPageControllerImp> {
                                   decorationColor: Colors.black,
                                   decorationThickness: 3),
                             ),
-                          Text("${item.itemPrice}\$",
+                          Text("${item.itempricedisount}\$",
                               style: const TextStyle(
                                 color: AppColors.green,
                                 fontWeight: FontWeight.bold,

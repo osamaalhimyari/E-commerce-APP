@@ -47,8 +47,14 @@ dependencies:
   cached_network_image: ^3.4.0
   google_maps_flutter: ^2.9.0
   geolocator: ^12.0.0
+  jiffy: ^6.3.1
+  googleapis_auth: ^1.6.0
+  flutter_local_notifications: ^17.2.2
+  flutter_ringtone_player: ^4.0.0+3
+  url_launcher: ^6.3.0
+  flutter_rating: ^2.0.2
   # firebase_messaging: ^14.7.10
-
+# flutter_typeahead:
 dev_dependencies:
   flutter_test:
     sdk: flutter

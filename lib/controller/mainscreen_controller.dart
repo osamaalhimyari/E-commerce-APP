@@ -1,4 +1,5 @@
 import 'package:ecommerce2/test.dart';
+import 'package:ecommerce2/view/screen/pages/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,7 @@ class MainScreenControllerImp extends MainScreenController {
 
   List<Widget> listPage = [
     const HomePage(),
-    const TestView(),
+    const NotificationsPage(),
     const TestView(),
     const SettingsPage(),
     // NotificationView() ,

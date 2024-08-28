@@ -64,15 +64,15 @@ class CartControllerImp extends CartController {
   goToPageCheckout() {
     if (data.isEmpty) return Get.snackbar("تنبيه", "السله فارغه");
     Get.toNamed(AppRoute.checkoutpage, arguments: {
-      "couponid": couponModel == null ? "0" : couponModel!.couponId ?? "0",
-      "priceorder": priceorders.toString(),
-      "discountcoupon": couponDiscount.toString()
+      "couponid": couponModel == null ? 0 : couponModel!.couponId ?? 0,
+      "priceorder": priceorders,
+      "discountcoupon": couponDiscount()
     });
   }
 
   @override
   getTotalPrice() {
-    return (priceorders - priceorders * couponDiscount()! / 100);
+    return (priceorders - priceorders * couponDiscount() / 100);
   }
 
   @override

@@ -1,3 +1,6 @@
+import 'package:ecommerce2/core/functions/creat_channel_notification.dart';
+
+import '../../functions/fcmconfig.dart';
 import '/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,6 +32,10 @@ class LcaleController extends GetxController {
 
   @override
   void onInit() {
+    requestPermissionNotification();
+
+    fcmconfig();
+    createNotificationChannel();
     String? sharedPrefLang = myServices.sharedPreferences.getString('lang');
     if (sharedPrefLang == null) {
       language = Get.deviceLocale ?? const Locale('en', 'us');

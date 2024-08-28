@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:ecommerce2/controller/pages/items_controller.dart';
 import 'package:ecommerce2/core/class/handlingdataview.dart';
 import 'package:ecommerce2/view/widget/customappbar.dart';

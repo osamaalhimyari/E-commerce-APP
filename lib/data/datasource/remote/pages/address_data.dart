@@ -11,15 +11,15 @@ class AddressData {
     return response.fold((l) => l, (r) => r);
   }
 
-  addData(String userid, String name, String city, String street, String lat,
-      String long) async {
+  addData(String userid, String name, String city, String street, String? lat,
+      String? long) async {
     var response = await crud.postData(AppLinks.addressadd, {
       "userid": userid,
       "name": name,
       "city": city,
       "street": street,
-      "lat": lat,
-      "long": long,
+      "lat": lat ?? "",
+      "long": long ?? "",
     });
     return response.fold((l) => l, (r) => r);
   }

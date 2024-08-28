@@ -47,22 +47,22 @@ class CheckoutPage extends StatelessWidget {
                       const SizedBox(height: 10),
                       InkWell(
                         onTap: () {
-                          controller.choosePaymentMethod("0");
+                          controller.choosePaymentMethod(0);
                         },
                         child: CardPaymentMethodCheckout(
                             title: "Cash On Delivery",
-                            isActive: controller.paymentMethod == "0" // cash
+                            isActive: controller.paymentMethod == 0 // cash
                                 ? true
                                 : false),
                       ),
                       const SizedBox(height: 10),
                       InkWell(
                         onTap: () {
-                          controller.choosePaymentMethod("1");
+                          controller.choosePaymentMethod(1);
                         },
                         child: CardPaymentMethodCheckout(
                             title: "Payment Cards",
-                            isActive: controller.paymentMethod == "1" // Card
+                            isActive: controller.paymentMethod == 1 // Card
                                 ? true
                                 : false),
                       ),
@@ -79,32 +79,31 @@ class CheckoutPage extends StatelessWidget {
                         children: [
                           InkWell(
                             onTap: () {
-                              controller
-                                  .chooseDeliveryType("0"); // 0 => Delivery
+                              controller.chooseDeliveryType(0); // 0 => Delivery
                             },
                             child: CardDeliveryTypeCheckout(
                                 imagename: AppImageAsset.deliveryImage2,
                                 title: "Delivery",
-                                active: controller.deliveryType == "0"
+                                active: controller.deliveryType == 0
                                     ? true
                                     : false),
                           ),
                           const SizedBox(width: 10),
                           InkWell(
                             onTap: () {
-                              controller.chooseDeliveryType("1"); // 1 => recive
+                              controller.chooseDeliveryType(1); // 1 => recive
                             },
                             child: CardDeliveryTypeCheckout(
                                 imagename: AppImageAsset.drivethruImage,
                                 title: "Revice",
-                                active: controller.deliveryType == "1"
+                                active: controller.deliveryType == 1
                                     ? true
                                     : false),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
-                      if (controller.deliveryType == "0")
+                      // const SizedBox(height: 20),
+                      if (controller.deliveryType == 0)
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -121,7 +120,8 @@ class CheckoutPage extends StatelessWidget {
                               (index) => InkWell(
                                 onTap: () {
                                   controller.chooseShippingAddress(
-                                      controller.dataaddress[index].addressId!);
+                                      controller.dataaddress[index].addressId ??
+                                          0);
                                 },
                                 child: CardShppingAddressCheckout(
                                     title:

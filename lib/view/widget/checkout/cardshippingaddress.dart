@@ -15,7 +15,7 @@ class CardShppingAddressCheckout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: isactive ? AppColors.secondaryColor : Colors.white,
+      color: isactive ? AppColors.secondaryColor : null,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: ListTile(
         title: Text(title,

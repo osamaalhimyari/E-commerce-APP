@@ -61,8 +61,8 @@ class ProductDetailsPage extends StatelessWidget {
                                     controller.deleteFromCart(
                                         controller.itemModel.itemId!);
                                   },
-                                  price: '20',
-                                  // "${controller.itemModel.itemsPriceDiscount}",
+                                  price:
+                                      "${controller.itemModel.itempricedisount}",
                                   count: "${controller.countitems}"),
                               const SizedBox(height: 10),
                               Text("${controller.itemModel.itemDescEn}",

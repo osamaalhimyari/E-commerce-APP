@@ -1,10 +1,10 @@
 import 'package:ecommerce2/core/constants/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../controller/pages/settings_ontroller.dart';
 import '../../../core/constants/color_app.dart';
 import '../../../core/constants/image_assets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -42,14 +42,14 @@ class SettingsPage extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {
-                  // Get.toNamed(AppRoute.orderspending);
+                  Get.toNamed(AppRoute.orderspending);
                 },
                 trailing: const Icon(Icons.card_travel),
                 title: const Text("Orders"),
               ),
               ListTile(
                 onTap: () {
-                  // Get.toNamed(AppRoute.ordersarchive);
+                  Get.toNamed(AppRoute.ordersarchive);
                 },
                 trailing: const Icon(Icons.card_travel),
                 title: const Text("Archive"),
@@ -62,12 +62,23 @@ class SettingsPage extends StatelessWidget {
                 title: const Text("Address"),
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  final Uri emailLaunchUri = Uri(
+                    scheme: 'mailto',
+                    path: 'smith@example.com',
+                    // query: encodeQueryParameters(<String, String>{
+                    //   'subject': 'Example Subject & Symbols are allowed!',
+                    // }),
+                  );
+                  launchUrl(emailLaunchUri);
+                },
                 trailing: const Icon(Icons.help_outline_rounded),
                 title: const Text("About us"),
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  launchUrl(Uri.parse("tel:777777"));
+                },
                 trailing: const Icon(Icons.phone_callback_outlined),
                 title: const Text("Contact us"),
               ),
@@ -84,4 +95,11 @@ class SettingsPage extends StatelessWidget {
       ],
     );
   }
+}
+
+String? encodeQueryParameters(Map<String, String> params) {
+  return params.entries
+      .map((MapEntry<String, String> e) =>
+          '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+      .join('&');
 }

@@ -59,7 +59,7 @@ class CartPage extends StatelessWidget {
                                 name:
                                     "${cartController.data[index].itemNameEn}",
                                 price:
-                                    "${cartController.data[index].itemPrice} \$",
+                                    "${cartController.data[index].totalprice} \$",
                                 count:
                                     "${cartController.data[index].itemscount}"),
                           )

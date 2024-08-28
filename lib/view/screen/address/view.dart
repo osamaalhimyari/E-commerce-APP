@@ -1,5 +1,4 @@
 import 'package:ecommerce2/controller/address/view_controller.dart';
-
 import '../../../data/model/address_model.dart';
 import '/core/class/handlingdataview.dart';
 import 'package:flutter/material.dart';
@@ -10,15 +9,14 @@ class AddressViewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // AddressViewController controller =
-    Get.put(AddressViewController());
+    AddressViewController controller = Get.put(AddressViewController());
     return Scaffold(
         appBar: AppBar(
           title: const Text('address'),
         ),
         floatingActionButton: FloatingActionButton(
             onPressed: () {
-              // Get.toNamed(AppRoute.addressadd);
+              controller.goToAddAddress();
             },
             child: const Icon(Icons.add)),
         body: GetBuilder<AddressViewController>(
@@ -30,7 +28,7 @@ class AddressViewPage extends StatelessWidget {
                 return CardAddress(
                   addressModel: controller.data[i],
                   onDelete: () {
-                    controller.deleteAddress(controller.data[i].addressId!);
+                    controller.deleteAddress(controller.data[i]);
                   },
                 );
               },

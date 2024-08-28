@@ -5,6 +5,31 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     
+
+     <!-- notification permission -->
+    <!-- <uses-permission android:name="android.permission.WAKE_LOCK" /> -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+
+<!-- Provide required visibility configuration for API level 30 and above -->
+<queries>
+  <!-- If your app checks for SMS support -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="sms" />
+  </intent>
+  <!-- If your app checks for call support -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="tel" />
+  </intent>
+  <!-- If your application checks for inAppBrowserView launch mode support -->
+  <intent>
+    <action android:name="android.support.customtabs.action.CustomTabsService" />
+  </intent>
+</queries>
+
     <application
         android:label="ecommerce2"
         android:name="${applicationName}"
@@ -13,6 +38,13 @@
                android:value="AIzaSyA5rCmUzjTvweTkVlAWBTAQcnilEpA551A"/>
                     <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyA5rCmUzjTvweTkVlAWBTAQcnilEpA551A"/>
+
+
+          
+   <meta-data
+        android:name="com.google.firebase.messaging.default_notification_channel_id"
+        android:value="high_importance_ecommerce_channel"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -37,6 +69,18 @@
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+
+
+<!-- for firebase messaging 2-->
+
+  <service
+        android:name="com.google.firebase.messaging.FirebaseMessagingService"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+    </service>
+
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

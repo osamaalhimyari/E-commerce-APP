@@ -17,4 +17,8 @@ class AppRoute {
   static const String addressview = "/addressviewPage";
   static const String addressdetail = "/addressdetailPage";
   static const String checkoutpage = "/checkoutpage";
+
+  static const String orderspending = "/orderspending";
+  static const String ordersarchive = "/ordersarchive";
+  static const String ordersdetails = "/ordersdetails";
 }

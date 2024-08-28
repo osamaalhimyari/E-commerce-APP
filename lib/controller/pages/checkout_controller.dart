@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../core/class/status_request.dart';
 import '../../core/services/services.dart';
 import '../../data/datasource/remote/pages/address_data.dart';
-import '../../data/datasource/remote/pages/checkout_date.dart';
+import '../../data/datasource/remote/pages/checkout_data.dart';
 import '../../data/model/address_model.dart';
 
 class CheckoutController extends GetxController {
@@ -16,27 +16,27 @@ class CheckoutController extends GetxController {
 
   StatusRequest statusRequest = StatusRequest.none;
 
-  String? paymentMethod;
-  String? deliveryType;
-  String addressid = "0";
+  int? paymentMethod;
+  int? deliveryType;
+  int addressid = 0;
 
-  late String couponid;
-  late String coupondiscount;
-  late String priceorders;
+  late int couponid;
+  late int coupondiscount;
+  late double priceorders;
 
   List<AddressModel> dataaddress = [];
 
-  choosePaymentMethod(String val) {
+  choosePaymentMethod(int val) {
     paymentMethod = val;
     update();
   }
 
-  chooseDeliveryType(String val) {
+  chooseDeliveryType(int val) {
     deliveryType = val;
     update();
   }
 
-  chooseShippingAddress(String val) {
+  chooseShippingAddress(int val) {
     addressid = val;
     update();
   }
@@ -47,19 +47,11 @@ class CheckoutController extends GetxController {
     var response = await addressData
         .getData(myServices.sharedPreferences.getString("userid")!);
 
-    print("=============================== Controller $response ");
-
     statusRequest = handlingTransaction(response);
-
+    // print('========================$response');
     if (statusRequest == StatusRequest.success) {
-      // Start backend
-      // if (response['status'] == "success") {
       List listdata = response['data'];
       dataaddress.addAll(listdata.map((e) => AddressModel.fromJson(e)));
-      // } else {
-      //   statusRequest = StatusRequest.success;
-      // }
-      // End
     }
     update();
   }
@@ -77,32 +69,30 @@ class CheckoutController extends GetxController {
     update();
 
     Map data = {
-      "usersid": myServices.sharedPreferences.getString("id"),
-      "addressid": addressid.toString(),
-      "orderstype": deliveryType.toString(),
-      "pricedelivery": "10",
-      "ordersprice": priceorders,
-      "couponid": couponid,
-      "coupondiscount": coupondiscount.toString(),
-      "paymentmethod": paymentMethod.toString()
+      "userid": myServices.sharedPreferences.getString("userid"),
+      "addressid": "$addressid",
+      "orderstype": "$deliveryType",
+      "pricedelivery": "${10}",
+      "ordersprice": "$priceorders",
+      "couponid": "$couponid",
+      "paymentmethod": "$addressData",
+      "coupondiscount": "$coupondiscount"
     };
 
     var response = await checkoutData.checkout(data);
-
-    print("=============================== Controller $response ");
 
     statusRequest = handlingTransaction(response);
 
     if (StatusRequest.success == statusRequest) {
       // Start backend
-      if (response['status'] == "success") {
-        Get.offAllNamed(AppRoute.home);
-        Get.snackbar("Success", "the order was successfully");
-      } else {
-        statusRequest = StatusRequest.none;
-        Get.snackbar("Error", "try again");
-      }
+
+      Get.offAllNamed(AppRoute.home);
+      Get.snackbar("Success", "the order was successfully");
+
       // End
+    } else {
+      statusRequest = StatusRequest.none;
+      Get.snackbar("Error", "try again");
     }
     update();
   }
@@ -111,7 +101,7 @@ class CheckoutController extends GetxController {
   void onInit() {
     couponid = Get.arguments['couponid'];
     priceorders = Get.arguments['priceorder'];
-    coupondiscount = Get.arguments['discountcoupon'].toString();
+    coupondiscount = Get.arguments['discountcoupon'];
 
     getShippingAddress();
     super.onInit();
